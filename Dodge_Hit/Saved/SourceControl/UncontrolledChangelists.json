@@ -1,0 +1,17 @@
+{
+	"version": 1,
+	"changelists": [
+		{
+			"guid": "00000000000000000000000000000000",
+			"description": "Default Uncontrolled Changelist",
+			"files": [
+				"D:/Dodge-Hit/Dodge_Hit/Content/Level/GameScene.umap",
+				"D:/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/Input/IMC_Default.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Blueprints/BP_Disque.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/Input/Actions/IA_Dash.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/Input/Actions/IA_Shoot.uasset"
+			]
+		}
+	]
+}
