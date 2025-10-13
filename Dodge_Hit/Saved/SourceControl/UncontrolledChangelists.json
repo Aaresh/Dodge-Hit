@@ -5,6 +5,7 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+<<<<<<< HEAD
 				"C:/Users/P/Documents/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Lvl_FirstPerson.umap",
 				"C:/Users/P/Documents/Dodge-Hit/Dodge_Hit/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/2/EG/CIZR6W2NYH4Y5P8G67XOU0.uasset",
 				"C:/Users/P/Documents/Dodge-Hit/Dodge_Hit/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/2/ET/CTX7RFJWO2IE7BS6KYXKGS.uasset",
@@ -85,6 +86,14 @@
 				"C:/Users/P/Documents/Dodge-Hit/Dodge_Hit/Content/__ExternalActors__/FirstPerson/Lvl_FirstPerson/3/MK/NJ04O61S6BUNP7K5Y38NNR.uasset",
 				"C:/Users/P/Documents/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Blueprints/BP_FirstPersonPlayerController.uasset",
 				"C:/Users/P/Documents/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Blueprints/BP_FirstPersonCameraManager.uasset"
+=======
+				"D:/Dodge-Hit/Dodge_Hit/Content/Level/GameScene.umap",
+				"D:/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Blueprints/BP_FirstPersonCharacter.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/Input/IMC_Default.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/FirstPerson/Blueprints/BP_Disque.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/Input/Actions/IA_Dash.uasset",
+				"D:/Dodge-Hit/Dodge_Hit/Content/Input/Actions/IA_Shoot.uasset"
+>>>>>>> origin/main
 			]
 		}
 	]
