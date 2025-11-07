@@ -1,6 +1,6 @@
 //Maya ASCII 2025ff03 scene
 //Name: Blocking_Arene.ma
-//Last modified: Wed, Nov 05, 2025 06:26:18 PM
+//Last modified: Fri, Nov 07, 2025 12:35:29 PM
 //Codeset: 1252
 requires maya "2025ff03";
 requires -nodeType "materialxStack" -nodeType "MaterialXSurfaceShader" -dataType "MxDocumentStackData"
@@ -13,24 +13,24 @@ fileInfo "product" "Maya 2025";
 fileInfo "version" "2025";
 fileInfo "cutIdentifier" "202505300603-a12e894a3d";
 fileInfo "osv" "Windows 11 Education v2009 (Build: 26100)";
-fileInfo "UUID" "7D424AD3-4F5A-DF04-060F-D1A34D832D3B";
+fileInfo "UUID" "FAEF7B47-444B-9212-55F3-ED895626D0A8";
 fileInfo "license" "education";
 createNode transform -s -n "persp";
 	rename -uid "8A9667BE-4BA4-9356-7F49-A785541D6CFD";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -1401.4734232897963 4335.3869617730088 792.76059407286039 ;
-	setAttr ".r" -type "double3" -56.138352729667346 300.99999999945095 6.1753777758463604e-15 ;
+	setAttr ".t" -type "double3" -3703.5210136578453 4078.6319621209896 -482.53260169719988 ;
+	setAttr ".r" -type "double3" -47.738352729738203 623.40000000043415 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "2DAF3E45-4518-D44A-F319-90A900537E09";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
 	setAttr ".ncp" 10;
 	setAttr ".fcp" 100000;
-	setAttr ".coi" 4258.7125953698251;
+	setAttr ".coi" 6507.4564096885833;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
-	setAttr ".tp" -type "double3" 665.79496975607265 746.4172564577284 193.34625147027873 ;
+	setAttr ".tp" -type "double3" 1129.8473109103843 407.86984716375031 -962.79048754724886 ;
 	setAttr ".hc" -type "string" "viewSet -p %camera";
 createNode transform -s -n "top";
 	rename -uid "085C3BB8-4EAA-77A6-42E0-14A16C0E1014";
@@ -81,6 +81,7 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".o" yes;
 createNode transform -n "Main";
 	rename -uid "9B56A484-42F5-EE7C-DCA3-CF9B8FFCF100";
+	setAttr ".v" no;
 	setAttr ".s" -type "double3" 0.7 0.7 0.7 ;
 	setAttr ".rp" -type "double3" 4.2060855154873025 207.58572920308848 -511.91643402362479 ;
 	setAttr ".sp" -type "double3" 4.2060855154873025 207.58572920308848 -511.91643402362479 ;
@@ -27674,21 +27675,5359 @@ createNode mesh -n "Plastic_BigBlocShape" -p "Plastic_BigBloc";
 		198 0 
 		199 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "Bp_Layout";
+	rename -uid "5E21C0C2-4533-2802-DB0C-188357431AC2";
+	setAttr ".t" -type "double3" 810.96661376953125 -859.8096923828125 -6.0818667411804199 ;
+	setAttr ".r" -type "double3" -90 0 0 ;
+createNode transform -n "Wall" -p "Bp_Layout";
+	rename -uid "39189908-4A9D-2C1F-37DA-09BEA1728DEE";
+	setAttr ".t" -type "double3" 3.4282544220332056e-05 -1186.8094482421875 570.927734375 ;
+	setAttr ".s" -type "double3" 16.076672012452036 0.56735908472910523 11.879999879747629 ;
+createNode mesh -n "WallShape" -p "Wall";
+	rename -uid "04337111-4D65-AA5A-52CC-B293340DEB0D";
+	setAttr -k off ".v";
+	setAttr -s 11 ".iog";
+	setAttr -s 2 ".iog[0].og";
+	setAttr -s 2 ".iog[1].og";
+	setAttr -s 2 ".iog[2].og";
+	setAttr -s 2 ".iog[3].og";
+	setAttr -s 2 ".iog[4].og";
+	setAttr -s 2 ".iog[5].og";
+	setAttr -s 2 ".iog[6].og";
+	setAttr -s 2 ".iog[7].og";
+	setAttr -s 2 ".iog[8].og";
+	setAttr -s 2 ".iog[9].og";
+	setAttr -s 2 ".iog[10].og";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".pv" -type "double2" 0.5 0.5 ;
+	setAttr -s 2 ".uvst";
+	setAttr ".uvst[0].uvsn" -type "string" "UVmap_0";
+	setAttr ".uvst[1].uvsn" -type "string" "LightMapUV";
+	setAttr ".cuvs" -type "string" "UVmap_0";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+createNode transform -n "Wall1" -p "Bp_Layout";
+	rename -uid "E9DC2C3A-44A1-A175-CE00-E298838923D3";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 717.31390380859375 19.085060119628906 570.927734375 ;
+	setAttr ".r" -type "double3" 0 0 -89.999999302826964 ;
+	setAttr ".s" -type "double3" 23.870994398836046 0.56735908472910523 11.879999879747629 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "Wall2" -p "Bp_Layout";
+	rename -uid "922C86AC-4D17-175B-A0A1-8FAE0B1696F8";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 10.129707336425781 1180.7196044921875 570.927734375 ;
+	setAttr ".s" -type "double3" 15.576672012452036 0.56735908472910523 11.879999879747629 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BlocPlastic" -p "Bp_Layout";
+	rename -uid "1150AF9F-4B71-A55E-53DC-698359F67F8F";
+	setAttr ".t" -type "double3" 596.95574951171875 -1078.9886474609375 138.70651245117188 ;
+	setAttr ".r" -type "double3" 0 0 -134.99999895424043 ;
+createNode transform -n "BP_BlocPlastic12" -p "Bp_Layout";
+	rename -uid "15890A99-45FC-3D20-7B62-D78C51E7CCD2";
+	setAttr ".t" -type "double3" 596.95574951171875 -1078.9886474609375 138.70651245117188 ;
+	setAttr ".r" -type "double3" 0 0 -134.99999895424043 ;
+createNode mesh -n "BP_BlocPlastic12Shape" -p "BP_BlocPlastic12";
+	rename -uid "074E8387-4A35-8E90-BAFA-65B221CC2654";
+	setAttr -k off ".v";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:317]";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr ".uvst[0].uvsn" -type "string" "LightMapUV";
+	setAttr -s 259 ".uvst[0].uvsp";
+	setAttr ".uvst[0].uvsp[0:249]" -type "float2" 0.36181641 0.95849609 0.021179199
+		 0.95852661 0.02116394 0.91046143 0.36181641 0.91040039 0.21801758 0.028808594 0.54541016
+		 0.028808594 0.54541016 0.23291016 0.21801758 0.23242188 0.54541016 0.37304688 0.21801758
+		 0.37304688 0.54541016 0.50585938 0.21801758 0.50585938 0.18762207 0.38818359 0.20288086
+		 0.37304688 0.19396973 0.37597656 0.19812012 0.37402344 0.19055176 0.37939453 0.18835449
+		 0.38330078 0.18762207 0.50585938 0.18762207 0.50927734 0.21801758 0.50927734 0.18762207
+		 0.51269531 0.54541016 0.50927734 0.21801758 0.51269531 0.18762207 0.51611328 0.54541016
+		 0.51269531 0.21801758 0.51611328 0.18762207 0.51953125 0.54541016 0.51611328 0.21801758
+		 0.51953125 0.18762207 0.52294922 0.54541016 0.51953125 0.21801758 0.52294922 0.18762207
+		 0.52636719 0.54541016 0.52294922 0.21801758 0.52636719 0.54541016 0.52636719 0.36181641
+		 0.72680664 0.021118164 0.54150391 0.36181641 0.54150391 0.021148682 0.72680664 0.021148682
+		 0.73168945 0.36181641 0.73168945 0.021148682 0.73657227 0.36181641 0.73632813 0.021148682
+		 0.74121094 0.36181641 0.74121094 0.021148682 0.74609375 0.36181641 0.74609375 0.021148682
+		 0.75085449 0.36181641 0.75073242 0.021148682 0.75561523 0.36181641 0.75561523 0.36181641
+		 0.75964355 0.021148682 0.75964355 0.021148682 0.7644043 0.36181641 0.7644043 0.021148682
+		 0.76928711 0.36181641 0.76916504 0.021148682 0.77404785 0.36181641 0.77404785 0.021148682
+		 0.77880859 0.36181641 0.77880859 0.021148682 0.78356934 0.36181641 0.78356934 0.021148682
+		 0.78833008 0.36181641 0.78833008 0.78466797 0.98168945 0.78369141 0.64086914 0.82470703
+		 0.64086914 0.82568359 0.98158264 0.98779297 0.65356445 0.98828125 0.98114014 0.97460938
+		 0.64038086 0.97802734 0.64086914 0.98583984 0.64697266 0.98730469 0.65014648 0.98388672
+		 0.64428711 0.98095703 0.64208984 0.046691895 0.35205078 0.047271729 0.22949219 0.21008301
+		 0.35253906 0.063049316 0.2109375 0.21032715 0.21142578 0.046691895 0.22460938 0.047485352
+		 0.1953125 0.21057129 0.0083007813 0.057861328 0.2109375 0.04800415 0.0083007813 0.052642822
+		 0.2109375 0.044891357 0.22021484 0.047485352 0.20068359 0.047454834 0.2109375 0.042053223
+		 0.21630859 0.038269043 0.21337891 0.047454834 0.20605469 0.033843994 0.21142578 0.029083252
+		 0.2109375 0.0069198608 0.19238281 0.0074539185 0.0083007813 0.025009155 0.2109375
+		 0.015914917 0.20849609 0.020278931 0.21044922 0.007484436 0.19726563 0.0092697144
+		 0.20166016 0.012161255 0.20556641 0.74951172 0.63378906 0.74023438 0.63085938 0.74511719
+		 0.6315918 0.75537109 0.64599609 0.75244141 0.63720703 0.75488281 0.64135742 0.72509766
+		 0.63085938 0.72509766 0.7767334 0.75537109 0.7767334 0.39770508 0.77685547 0.38452148
+		 0.63085938 0.38452148 0.76379395 0.39111328 0.77502441 0.39428711 0.77636719 0.38500977
+		 0.76708984 0.38623047 0.77026367 0.38842773 0.77294922 0.98388672 0.17919922 0.98876953
+		 0.17431641 0.98681641 0.17724609 0.99072266 0.16796875 0.99023438 0.17138672 0.98095703
+		 0.18066406 0.97753906 0.18115234 0.99072266 0.050292969 0.82763672 0.050292969 0.82763672
+		 0.18115234 0.77978516 0.18115234 0.99072266 0.045410156 0.77978516 0.050292969 0.82763672
+		 0.045410156 0.99072266 0.040527344 0.77978516 0.045410156 0.82763672 0.040527344
+		 0.99072266 0.036132813 0.77978516 0.040527344 0.82763672 0.036132813 0.99072266 0.03125
+		 0.77978516 0.036132813 0.82763672 0.03125 0.99072266 0.026367188 0.77978516 0.03125
+		 0.82763672 0.011230469 0.99072266 0.011230469 0.82763672 0.026367188 0.77978516 0.026367188
+		 0.77978516 0.011230469 0.77490234 0.6159668 0.72753906 0.6159668 0.77490234 0.61279297
+		 0.72753906 0.61254883 0.77490234 0.609375 0.57958984 0.61474609 0.72753906 0.60913086
+		 0.77490234 0.60595703 0.57958984 0.61132813 0.72753906 0.60571289 0.77490234 0.60253906
+		 0.57958984 0.60791016 0.57568359 0.61083984 0.57470703 0.61499023 0.57666016 0.60742188
+		 0.57128906 0.60986328 0.56884766 0.61328125 0.57324219 0.60668945 0.56738281 0.60693359
+		 0.56445313 0.60961914 0.56152344 0.60473633 0.56982422 0.60473633 0.56494141 0.6027832
+		 0.56005859 0.59936523 0.57177734 0.6027832 0.56396484 0.59863281 0.56005859 0.5949707
+		 0.56787109 0.60107422 0.56347656 0.59472656 0.56054688 0.46435547 0.56738281 0.59765625
+		 0.56396484 0.46435547 0.56103516 0.32568359 0.56689453 0.59472656 0.57128906 0.59985352
+		 0.56445313 0.32568359 0.56005859 0.12304688 0.56347656 0.12304688 0.56738281 0.46435547
+		 0.56787109 0.32568359 0.56689453 0.12304688 0.5703125 0.59472656 0.57080078 0.32568359
+		 0.5703125 0.12304688 0.57080078 0.46435547 0.57421875 0.32568359 0.57373047 0.12304688
+		 0.57421875 0.46435547 0.57373047 0.59472656 0.57080078 0.59716797 0.57421875 0.59716797
+		 0.57714844 0.59472656 0.57470703 0.60009766 0.57714844 0.59765625 0.57763672 0.46435547
+		 0.58007813 0.59472656 0.57763672 0.32568359 0.57714844 0.12304688 0.58056641 0.46435547
+		 0.58105469 0.32568359 0.58056641 0.12304688 0.73046875 0.31054688 0.72998047 0.12255859
+		 0.71435547 0.32617188 0.77099609 0.12255859 0.77148438 0.30761719 0.72949219 0.34423828
+		 0.72851563 0.46484375 0.72998047 0.33984375 0.72753906 0.59570313 0.77539063 0.46533203
+		 0.77490234 0.59594727 0.58007813 0.59790039 0.72753906 0.59912109 0.77490234 0.59936523
+		 0.57763672 0.60083008 0.58007813 0.60131836 0.72753906 0.60253906 0.58007813 0.60449219
+		 0.57763672 0.60400391 0.57470703 0.60351563 0.71972656 0.32617188 0.72509766 0.32617188
+		 0.73193359 0.3359375 0.73046875 0.31591797 0.73046875 0.32666016 0.73583984 0.33203125
+		 0.74023438 0.32910156 0.73046875 0.32128906 0.74462891 0.32666016 0.74902344 0.32617188
+		 0.75292969 0.32617188 0.76220703 0.32373047 0.7578125 0.32568359 0.77099609 0.3125
+		 0.76904297 0.31689453 0.76611328 0.32080078;
+	setAttr ".uvst[0].uvsp[250:258]" 0.39013672 0.83422852 0.71777344 0.98417664
+		 0.39013672 0.98416138 0.74804688 0.83435059 0.74804688 0.98419189 0.71777344 0.83435059
+		 0.39013672 0.78625488 0.74804688 0.78625488 0.71777344 0.78625488;
+	setAttr ".cuvs" -type "string" "LightMapUV";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr -s 161 ".vt[0:160]"  289.3109436 -167.53114319 597.60430908 -301.91235352 -167.53114319 597.60430908
+		 -301.91235352 -84.11963654 597.60430908 289.3109436 -84.11963654 597.60430908 289.3109436 198.63165283 0.50813097
+		 -279.22399902 198.63165283 0.50813097 -279.22399902 198.63165283 353.947052 289.3109436 198.63165283 353.947052
+		 -279.22399902 198.63165283 597.60430908 289.3109436 198.63165283 597.60430908 -279.22399902 198.63165283 828.12768555
+		 289.3109436 198.63165283 828.12768555 341.92797852 198.63165283 623.91015625 315.62216187 198.63165283 597.60430908
+		 331.084259033 198.63165283 602.62823486 323.75109863 198.63165283 598.89178467 336.9039917 198.63165283 608.44793701
+		 340.64050293 198.63165283 615.78118896 341.92797852 198.63165283 828.12768555 341.92797852 197.85868835 833.99987793
+		 289.3109436 197.85868835 833.99987793 341.92797852 195.59199524 839.47174072 -279.22399902 197.85868835 833.99987793
+		 289.3109436 195.59199524 839.47174072 341.92797852 191.98640442 844.17077637 -279.22399902 195.59199524 839.47174072
+		 289.3109436 191.98640442 844.17077637 341.92797852 187.28755188 847.77624512 -279.22399902 191.98640442 844.17077637
+		 289.3109436 187.28755188 847.77624512 341.92797852 181.8155365 850.04284668 -279.22399902 187.28755188 847.77624512
+		 289.3109436 181.8155365 850.04284668 341.92797852 175.94343567 850.815979 -279.22399902 181.8155365 850.04284668
+		 289.3109436 175.94343567 850.815979 -279.22399902 175.94343567 850.815979 289.3109436 -154.80683899 322.14080811
+		 -301.91235352 -154.80683899 0.50813097 289.3109436 -154.80683899 0.50813097 -301.91235352 -154.80683899 322.14080811
+		 -301.91235352 -153.72303772 330.37280273 289.3109436 -153.72303772 330.37280273 -301.91235352 -150.54560852 338.043884277
+		 289.3109436 -150.54560852 338.043884277 -301.91235352 -145.49101257 344.63119507
+		 289.3109436 -145.49101257 344.63119507 -301.91235352 -138.90368652 349.68572998 289.3109436 -138.90368652 349.68572998
+		 -301.91235352 -131.23268127 352.86325073 289.3109436 -131.23268127 352.86325073 -301.91235352 -123.0006942749 353.947052
+		 289.3109436 -123.0006942749 353.947052 289.3109436 -115.92560577 353.947052 -301.91235352 -115.92560577 353.947052
+		 -301.91235352 -107.69358063 355.030883789 289.3109436 -107.69358063 355.030883789
+		 -301.91235352 -100.022247314 358.20828247 289.3109436 -100.022247314 358.20828247
+		 -301.91235352 -93.43547821 363.26293945 289.3109436 -93.43547821 363.26293945 -301.91235352 -88.38038635 369.85012817
+		 289.3109436 -88.38038635 369.85012817 -301.91235352 -85.20291901 377.52130127 289.3109436 -85.20291901 377.52130127
+		 -301.91235352 -84.11963654 385.75332642 289.3109436 -84.11963654 385.75332642 -301.91235352 -84.11963654 0.50813097
+		 289.3109436 -84.11963654 0.50813097 -301.91235352 175.94343567 0.50813097 -301.13922119 181.8155365 0.50813097
+		 -290.56811523 195.59199524 0.50813097 -285.096099854 197.85868835 0.50813097 -295.26702881 191.98640442 0.50813097
+		 -298.87271118 187.28755188 0.50813097 289.3109436 -56.97080231 353.947052 289.3109436 -84.11963654 326.79864502
+		 289.3109436 -66.020210266 353.947052 289.3109436 -75.069664001 353.947052 289.3109436 -84.11963654 335.8480835
+		 289.3109436 -84.11963654 353.947052 289.3109436 -84.11963654 344.89758301 331.084259033 -167.53114319 602.62823486
+		 315.62216187 -167.53114319 597.60430908 323.75109863 -167.53114319 598.89178467 341.92797852 -167.53114319 623.91015625
+		 336.9039917 -167.53114319 608.44793701 340.64050293 -167.53114319 615.78118896 289.3109436 -167.53114319 850.815979
+		 341.92797852 -167.53114319 850.815979 -279.22399902 -167.53114319 850.815979 -301.91235352 -167.53114319 828.12768555
+		 -290.56811523 -167.53114319 847.77624512 -285.096099854 -167.53114319 850.04284668
+		 -301.13922119 -167.53114319 833.99987793 -298.87271118 -167.53114319 839.47174072
+		 -295.26702881 -167.53114319 844.17077637 341.92797852 -84.11963654 623.91015625 341.92797852 -84.11963654 850.815979
+		 340.64050293 -84.11963654 615.78118896 336.9039917 -84.11963654 608.44793701 331.084259033 -84.11963654 602.62823486
+		 323.75109863 -84.11963654 598.89178467 315.62216187 -84.11963654 597.60430908 -279.22399902 -84.11963654 850.815979
+		 -285.096099854 -84.11963654 850.04284668 -290.56811523 -84.11963654 847.77624512
+		 -285.096099854 175.94343567 850.04284668 -295.26702881 -84.11963654 844.17077637
+		 -290.56811523 175.94343567 847.77624512 -284.88119507 181.60058594 849.35852051 -290.13638306 180.68611145 847.42822266
+		 -283.96682739 186.85568237 847.42822266 -289.027282715 185.74673462 846.070129395
+		 -283.64459229 191.66989136 843.85400391 -288.065124512 190.70439148 842.88861084
+		 -283.96682739 195.24406433 839.040161133 -292.31848145 189.037826538 841.22229004
+		 -284.88119507 197.17428589 833.78485107 -289.027282715 193.885849 837.93096924 -285.096099854 197.85868835 828.12768555
+		 -290.13638306 195.24406433 832.87036133 -285.096099854 197.85868835 597.60430908
+		 -290.56811523 195.59199524 828.12768555 -293.98501587 190.70439148 836.96881104 -285.096099854 197.85868835 353.947052
+		 -290.56811523 195.59199524 597.60430908 -290.56811523 195.59199524 353.947052 -295.26702881 191.98640442 828.12768555
+		 -295.26702881 191.98640442 353.947052 -295.26702881 191.98640442 597.60430908 -298.87271118 187.28755188 353.947052
+		 -298.87271118 187.28755188 597.60430908 -298.87271118 187.28755188 828.12768555 -294.95037842 191.66989136 832.54821777
+		 -298.52462769 186.85568237 832.87036133 -301.13922119 181.8155365 828.12768555 -297.16647339 185.74673462 837.93096924
+		 -300.4548645 181.60058594 833.78485107 -301.13922119 181.8155365 597.60430908 -301.91235352 175.94343567 828.12768555
+		 -301.13922119 181.8155365 353.947052 -301.91235352 175.94343567 597.60430908 -301.91235352 175.94343567 353.947052
+		 -301.91235352 -84.11963654 326.79864502 -301.91235352 -56.97080231 353.947052 -301.91235352 -84.11963654 828.12768555
+		 -301.13922119 175.94343567 833.99987793 -301.13922119 -84.11963654 833.99987793 -298.52462769 180.68611145 839.040161133
+		 -298.87271118 175.94343567 839.47174072 -298.87271118 -84.11963654 839.47174072 -295.26702881 175.94343567 844.17077637
+		 -294.95037842 180.3639679 843.85400391 -293.98501587 184.78448486 842.88861084 -301.91235352 -66.020210266 353.947052
+		 -301.91235352 -75.069664001 353.947052 -301.91235352 -84.11963654 335.8480835 -301.91235352 -84.11963654 353.947052
+		 -301.91235352 -84.11963654 344.89758301 289.3109436 -84.11963654 850.815979;
+	setAttr -s 477 ".ed";
+	setAttr ".ed[0:165]"  0 1 0 1 2 0 2 0 0 2 3 0 3 0 0 4 5 0 5 6 0 6 4 0 6 7 0
+		 7 4 0 6 8 0 8 7 0 8 9 0 9 7 0 8 10 0 10 9 0 10 11 0 11 9 0 12 9 0 11 12 0 12 13 0
+		 13 9 0 13 14 0 14 15 0 15 13 0 12 14 0 12 16 0 16 14 0 12 17 0 17 16 0 11 18 0 18 12 0
+		 11 19 0 19 18 0 20 19 0 11 20 0 10 20 0 20 21 0 21 19 0 22 20 0 10 22 0 23 21 0 20 23 0
+		 22 23 0 23 24 0 24 21 0 25 23 0 22 25 0 26 24 0 23 26 0 25 26 0 26 27 0 27 24 0 28 26 0
+		 25 28 0 26 29 0 29 27 0 28 29 0 29 30 0 30 27 0 28 31 0 31 29 0 29 32 0 32 30 0 31 32 0
+		 32 33 0 33 30 0 31 34 0 34 32 0 32 35 0 35 33 0 34 35 0 34 36 0 36 35 0 37 38 0 38 39 0
+		 39 37 0 37 40 0 40 38 0 37 41 0 41 40 0 42 41 0 37 42 0 42 43 0 43 41 0 44 43 0 42 44 0
+		 44 45 0 45 43 0 46 45 0 44 46 0 46 47 0 47 45 0 46 48 0 48 47 0 48 49 0 49 47 0 48 50 0
+		 50 49 0 50 51 0 51 49 0 50 52 0 52 51 0 53 51 0 52 53 0 53 54 0 54 51 0 53 55 0 55 54 0
+		 53 56 0 56 55 0 56 57 0 57 55 0 56 58 0 58 57 0 58 59 0 59 57 0 58 60 0 60 59 0 60 61 0
+		 61 59 0 62 61 0 60 62 0 62 63 0 63 61 0 64 63 0 62 64 0 64 65 0 65 63 0 66 65 0 64 66 0
+		 3 65 0 66 3 0 2 65 0 38 67 0 67 39 0 67 68 0 68 39 0 67 5 0 5 68 0 4 68 0 69 5 0
+		 67 69 0 70 5 0 69 70 0 5 71 0 71 72 0 72 5 0 70 71 0 70 73 0 73 71 0 70 74 0 74 73 0
+		 66 9 0 9 3 0 75 9 0 66 75 0 75 7 0 64 75 0 76 7 0 75 76 0 76 4 0 64 77 0 77 75 0
+		 77 76 0 76 68 0;
+	setAttr ".ed[166:331]" 64 78 0 78 77 0 62 78 0 77 79 0 79 76 0 78 79 0 62 80 0
+		 80 78 0 60 80 0 58 80 0 80 81 0 81 78 0 58 81 0 81 79 0 56 81 0 56 79 0 56 76 0 53 76 0
+		 53 37 0 37 76 0 37 68 0 52 37 0 52 48 0 48 37 0 48 42 0 48 44 0 82 83 0 83 84 0 84 82 0
+		 82 85 0 85 83 0 86 85 0 82 86 0 86 87 0 87 85 0 85 0 0 0 83 0 88 85 0 85 89 0 89 88 0
+		 88 0 0 90 0 0 88 90 0 90 1 0 90 91 0 91 1 0 90 92 0 92 91 0 90 93 0 93 92 0 92 94 0
+		 94 91 0 92 95 0 95 94 0 92 96 0 96 95 0 27 21 0 27 18 0 18 21 0 30 18 0 33 18 0 33 12 0
+		 33 97 0 97 12 0 33 98 0 98 97 0 89 97 0 98 89 0 97 17 0 85 97 0 99 17 0 97 99 0 85 99 0
+		 99 16 0 87 99 0 100 16 0 99 100 0 87 100 0 100 14 0 86 100 0 101 14 0 100 101 0 86 101 0
+		 101 15 0 82 101 0 102 15 0 101 102 0 82 102 0 102 13 0 84 102 0 13 3 0 84 103 0 103 102 0
+		 103 13 0 103 3 0 83 103 0 103 0 0 90 104 0 104 93 0 104 105 0 105 93 0 105 92 0 104 36 0
+		 36 105 0 105 106 0 106 92 0 106 96 0 36 107 0 107 105 0 107 106 0 106 108 0 108 96 0
+		 108 95 0 107 109 0 109 106 0 109 108 0 36 110 0 110 107 0 34 110 0 107 111 0 111 109 0
+		 110 111 0 34 112 0 112 110 0 31 112 0 110 113 0 113 111 0 112 113 0 31 114 0 114 112 0
+		 28 114 0 25 114 0 115 112 0 114 115 0 115 113 0 25 116 0 116 114 0 116 115 0 22 116 0
+		 117 113 0 115 117 0 22 118 0 118 116 0 10 118 0 116 119 0 119 115 0 118 119 0 119 117 0
+		 10 120 0 120 118 0 8 120 0 118 121 0 121 119 0 120 121 0 122 120 0 8 122 0 6 122 0
+		 120 123 0 123 121 0 122 123 0 121 124 0 124 119 0 124 117 0 125 122 0 6 125 0 5 125 0;
+	setAttr ".ed[332:476]" 72 125 0 125 126 0 126 122 0 126 123 0 72 127 0 127 125 0
+		 127 126 0 71 127 0 126 128 0 128 123 0 71 129 0 129 127 0 73 129 0 127 130 0 130 126 0
+		 129 130 0 130 128 0 73 131 0 131 129 0 74 131 0 129 132 0 132 130 0 131 132 0 130 133 0
+		 133 128 0 132 133 0 134 123 0 128 134 0 133 134 0 134 121 0 134 124 0 133 135 0 135 134 0
+		 135 124 0 132 136 0 136 133 0 136 135 0 135 137 0 137 124 0 137 117 0 136 138 0 138 135 0
+		 138 137 0 132 139 0 139 136 0 131 139 0 140 138 0 136 140 0 139 140 0 131 141 0 141 139 0
+		 74 141 0 70 141 0 141 142 0 142 139 0 142 140 0 70 143 0 143 141 0 143 142 0 69 143 0
+		 69 144 0 144 143 0 67 144 0 145 142 0 143 145 0 144 145 0 40 67 0 40 144 0 145 65 0
+		 65 142 0 2 142 0 145 63 0 146 142 0 2 146 0 146 140 0 1 146 0 91 146 0 146 147 0
+		 147 140 0 147 138 0 91 148 0 148 146 0 148 147 0 94 148 0 147 149 0 149 138 0 149 137 0
+		 148 150 0 150 147 0 150 149 0 94 151 0 151 148 0 151 150 0 95 151 0 108 151 0 108 152 0
+		 152 151 0 152 150 0 109 152 0 153 150 0 152 153 0 109 153 0 153 149 0 111 153 0 154 149 0
+		 153 154 0 111 154 0 154 137 0 113 154 0 154 117 0 145 155 0 155 63 0 144 155 0 156 63 0
+		 155 156 0 156 61 0 144 157 0 157 155 0 157 156 0 158 61 0 156 158 0 158 59 0 158 57 0
+		 159 158 0 156 159 0 159 57 0 157 159 0 159 55 0 157 55 0 144 55 0 144 54 0 40 54 0
+		 40 51 0 40 47 0 47 51 0 41 47 0 43 47 0 104 35 0 35 98 0 104 160 0 160 35 0 160 98 0
+		 90 160 0 160 89 0 88 160 0;
+	setAttr -s 954 ".n";
+	setAttr ".n[0:165]" -type "float3"  0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 0.96584284 0.25912857 0 0.96584284 0.25912857 0 0.96584284 0.25912857 0 1
+		 0 0 1 0 0 1 0 0 0.96584284 0.25912857 0 0.96584284 0.25912857 0 0.96584284 0.25912857
+		 0 0.86434835 0.50289357 0 0.96584284 0.25912857 0 0.96584284 0.25912857 0 1 0 0 0.86434835
+		 0.50289357 0 0.86434835 0.50289357 0 0.96584284 0.25912857 0 0.96584284 0.25912857
+		 0 0.96584284 0.25912857 0 0.86434835 0.50289357 0 0.86434835 0.50289357 0 0.86434835
+		 0.50289357 0 0.70710677 0.70710677 0 0.86775726 0.49698827 0 0.86434835 0.50289357
+		 0 0.96584284 0.25912857 0 0.70710677 0.70710677 0 0.70710677 0.70710677 0 0.86434835
+		 0.50289357 0 0.86434835 0.50289357 0 0.86775726 0.49698827 0 0.70710677 0.70710677
+		 0 0.70710677 0.70710677 0 0.49698827 0.86775726 0 0.70710677 0.70710677 0 0.70710677
+		 0.70710677 0 0.70710677 0.70710677 0 0.86775726 0.49698827 0 0.49698827 0.86775726
+		 0 0.70710677 0.70710677 0 0.49698827 0.86775726 0 0.70710677 0.70710677 0 0.49698827
+		 0.86775726 0 0.70710677 0.70710677 0 0.49698827 0.86775726 0 0.25912857 0.96584284
+		 0 0.49698827 0.86775726 0 0.49698827 0.86775726 0 0.70710677 0.70710677 0 0.49698827
+		 0.86775726 0 0.25912857 0.96584284 0 0.49698827 0.86775726 0 0.25912857 0.96584284
+		 0 0.49698827 0.86775726 0 0.25912857 0.96584284 0 0.49698827 0.86775726 0 0.25912857
+		 0.96584284 0 0 1 0 0.25912857 0.96584284 0 0.25912857 0.96584284 0 0.49698827 0.86775726
+		 0 0.25912857 0.96584284 0 0 1 0 0.25912857 0.96584284 0 0 1 0 0.25912857 0.96584284
+		 0 0 1 0 0.25912857 0.96584284 0 0 1 0 0.25912857 0.96584284 0 0 1 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -0.96584284 0.25912857 0 -0.96584284 0.25912857
+		 0 -0.96584284 0.25912857 0 -1 0 0 -0.96584284 0.25912857 0 -0.96584284 0.25912857
+		 0 -0.86775726 0.49698827 0 -0.86775726 0.49698827 0 -0.86775726 0.49698827 0 -0.96584284
+		 0.25912857 0 -0.86775726 0.49698827 0 -0.86775726 0.49698827 0 -0.70710677 0.70710677
+		 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.86775726 0.49698827 0 -0.70710677
+		 0.70710677 0 -0.50289357 0.86434835 0 -0.70710677 0.70710677 0 -0.50289357 0.86434835
+		 0 -0.70710677 0.70710677 0 -0.50289357 0.86434835 0 -0.50289357 0.86434835 0 -0.25912857
+		 0.96584284 0 -0.50289357 0.86434835 0 -0.25912857 0.96584284 0 -0.50289357 0.86434835
+		 0 -0.25912857 0.96584284 0 -0.25912857 0.96584284 0 -0.070688859 0.99749839 0 -0.25912857
+		 0.96584284 0 -0.070688859 0.99749839 0 -0.25912857 0.96584284 0 -0.070688859 0.99749839
+		 0 -0.070688859 0.99749839 0 -0.070688859 0.99749839 0 -0.070688859 0.99749839 0 -0.070688859
+		 0.99749839 0 -0.070688859 0.99749839 0 -0.070688859 0.99749839 0 -0.070688859 0.99749839;
+	setAttr ".n[166:331]" -type "float3"  0 -0.25912857 0.96584284 0 -0.070688859
+		 0.99749839 0 -0.25912857 0.96584284 0 -0.070688859 0.99749839 0 -0.25912857 0.96584284
+		 0 -0.25912857 0.96584284 0 -0.50289357 0.86434835 0 -0.25912857 0.96584284 0 -0.50289357
+		 0.86434835 0 -0.25912857 0.96584284 0 -0.50289357 0.86434835 0 -0.50289357 0.86434835
+		 0 -0.70710677 0.70710677 0 -0.50289357 0.86434835 0 -0.70710677 0.70710677 0 -0.50289357
+		 0.86434835 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677
+		 0 -0.86434835 0.50289357 0 -0.86434835 0.50289357 0 -0.86434835 0.50289357 0 -0.70710677
+		 0.70710677 0 -0.86434835 0.50289357 0 -0.86434835 0.50289357 0 -0.96584284 0.25912857
+		 0 -0.96584284 0.25912857 0 -0.96584284 0.25912857 0 -0.86434835 0.50289357 0 -0.96584284
+		 0.25912857 0 -0.96584284 0.25912857 0 -0.99996901 0.0078737717 0 -0.99996901 0.0078737717
+		 0 -0.99996901 0.0078737717 0 -0.96584284 0.25912857 0 -1 0 0 -0.99996901 0.0078737717
+		 0 -0.99996901 0.0078737717 0 -1 0 0 -1 0 0 -0.99996901 0.0078737717 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0;
+	setAttr ".n[332:497]" -type "float3"  1 0 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0.99996901 0 -0.0078737717 1
+		 0 0 0.99996901 0 -0.0078737717 1 0 0 0.99996901 0 -0.0078737717 0.99996901 0 -0.0078737717
+		 1 0 0 1 0 0 1 0 0 0.99996901 0 -0.0078737717 1 0 0 0.99996901 0 -0.0078737717 0.9517827
+		 0 -0.30677295 0.99996901 0 -0.0078737717 1 0 0 0.99996901 0 -0.0078737717 0.99996901
+		 0 -0.0078737717 0.9517827 0 -0.30677295 0.9517827 0 -0.30677295 0.99996901 0 -0.0078737717
+		 0.99996901 0 -0.0078737717 0.9517827 0 -0.30677295 0.99996901 0 -0.0078737717 0.9517827
+		 0 -0.30677295 0.80839652 0 -0.58863831 0.9517827 0 -0.30677295 0.9517827 0 -0.30677295
+		 0.9517827 0 -0.30677295 0.99996901 0 -0.0078737717 0.80839652 0 -0.58863831 0.80839652
+		 0 -0.58863831 0.9517827 0 -0.30677295 0.9517827 0 -0.30677295 0.80839652 0 -0.58863831
+		 0.9517827 0 -0.30677295 0.80839652 0 -0.58863831 0.58863831 0 -0.80839652 0.80839652
+		 0 -0.58863831 0.80839652 0 -0.58863831 0.80839652 0 -0.58863831 0.9517827 0 -0.30677295
+		 0.58863831 0 -0.80839652 0.58863831 0 -0.80839652 0.80839652 0 -0.58863831 0.80839652
+		 0 -0.58863831 0.58863831 0 -0.80839652 0.80839652 0 -0.58863831 0.58863831 0 -0.80839652
+		 0.30677295 0 -0.9517827 0.58863831 0 -0.80839652 0.58863831 0 -0.80839652 0.58863831
+		 0 -0.80839652 0.80839652 0 -0.58863831 0.30677295 0 -0.9517827 0.30677295 0 -0.9517827
+		 0.58863831 0 -0.80839652 0.58863831 0 -0.80839652 0.30677295 0 -0.9517827 0.58863831
+		 0 -0.80839652 0.30677295 0 -0.9517827 0.039339602 0 -0.99922591 0.30677295 0 -0.9517827
+		 0.30677295 0 -0.9517827 0.30677295 0 -0.9517827 0.58863831 0 -0.80839652 0 0 -1 0
+		 0 -1 0.039339602 0 -0.99922591 0.30677295 0 -0.9517827 0.039339602 0 -0.99922591
+		 0.30677295 0 -0.9517827 0.039339602 0 -0.99922591 0.039339602 0 -0.99922591 0.30677295
+		 0 -0.9517827 0.039339602 0 -0.99922591 0.039339602 0 -0.99922591 0 0 -1 0.039339602
+		 0 -0.99922591 0.039339602 0 -0.99922591 0.30677295 0 -0.9517827 0 0 -1 0 0 -1 0.039339602
+		 0 -0.99922591 0.039339602 0 -0.99922591 0.039339602 0 -0.99922591 0 0 -1 0 0 1 0
+		 0 1 -0.25912857 0 0.96584284 -0.25912857 0 0.96584284 0 0 1 -0.25912857 0 0.96584284
+		 -0.25912857 0 0.96584284 -0.25912857 0 0.96584284 -0.49698827 0 0.86775726 0 0 1
+		 0 0 1 -0.25912857 0 0.96584284 -0.49698827 0 0.86775726 -0.25912857 0 0.96584284
+		 -0.49698827 0 0.86775726 -0.49698827 0 0.86775726 -0.49698827 0 0.86775726 -0.70710677
+		 0 0.70710677;
+	setAttr ".n[498:663]" -type "float3"  -0.25912857 0 0.96584284 0 0 1 -0.25912857
+		 0 0.96584284 -0.25912857 0 0.96584284 -0.25912857 0 0.96584284 -0.49698827 0 0.86775726
+		 -0.70710677 0 0.70710677 -0.49698827 0 0.86775726 -0.70710677 0 0.70710677 -0.70710677
+		 0 0.70710677 -0.70710677 0 0.70710677 -0.86434835 0 0.50289357 -0.49698827 0 0.86775726
+		 -0.25912857 0 0.96584284 -0.49698827 0 0.86775726 -0.49698827 0 0.86775726 -0.49698827
+		 0 0.86775726 -0.70710677 0 0.70710677 0 0 1 -0.24444333 0.24444333 0.93834692 -0.25912857
+		 0 0.96584284 -0.24444333 0.24444333 0.93834692 0 0 1 0 0.25912857 0.96584284 -0.25912857
+		 0 0.96584284 -0.47972047 0.22019956 0.84934115 -0.49698827 0 0.86775726 -0.47972047
+		 0.22019956 0.84934115 -0.25912857 0 0.96584284 -0.24444333 0.24444333 0.93834692
+		 0 0.25912857 0.96584284 -0.22019956 0.47972047 0.84934115 -0.24444333 0.24444333
+		 0.93834692 -0.22019956 0.47972047 0.84934115 0 0.25912857 0.96584284 0 0.49698827
+		 0.86775726 -0.24444333 0.24444333 0.93834692 -0.43413538 0.43413538 0.78933704 -0.47972047
+		 0.22019956 0.84934115 -0.43413538 0.43413538 0.78933704 -0.24444333 0.24444333 0.93834692
+		 -0.22019956 0.47972047 0.84934115 0 0.49698827 0.86775726 -0.21202081 0.6910308 0.6910308
+		 -0.22019956 0.47972047 0.84934115 -0.21202081 0.6910308 0.6910308 0 0.49698827 0.86775726
+		 0 0.70710677 0.70710677 0 0.86775726 0.49698827 -0.21202081 0.6910308 0.6910308 0
+		 0.70710677 0.70710677 -0.40257442 0.64727652 0.64727652 -0.22019956 0.47972047 0.84934115
+		 -0.21202081 0.6910308 0.6910308 -0.22019956 0.47972047 0.84934115 -0.40257442 0.64727652
+		 0.64727652 -0.43413538 0.43413538 0.78933704 0 0.86775726 0.49698827 -0.22019956
+		 0.84934115 0.47972047 -0.21202081 0.6910308 0.6910308 -0.22019956 0.84934115 0.47972047
+		 -0.40257442 0.64727652 0.64727652 -0.21202081 0.6910308 0.6910308 0 0.96584284 0.25912857
+		 -0.22019956 0.84934115 0.47972047 0 0.86775726 0.49698827 -0.57735026 0.57735026
+		 0.57735026 -0.43413538 0.43413538 0.78933704 -0.40257442 0.64727652 0.64727652 0
+		 0.96584284 0.25912857 -0.24444333 0.93834692 0.24444333 -0.22019956 0.84934115 0.47972047
+		 0 1 0 -0.24444333 0.93834692 0.24444333 0 0.96584284 0.25912857 -0.22019956 0.84934115
+		 0.47972047 -0.43413538 0.78933704 0.43413538 -0.40257442 0.64727652 0.64727652 -0.24444333
+		 0.93834692 0.24444333 -0.43413538 0.78933704 0.43413538 -0.22019956 0.84934115 0.47972047
+		 -0.43413538 0.78933704 0.43413538 -0.57735026 0.57735026 0.57735026 -0.40257442 0.64727652
+		 0.64727652 -0.24444333 0.93834692 0.24444333 0 1 0 -0.25912857 0.96584284 0 0 1 0
+		 -0.25912857 0.96584284 0 0 1 0 -0.43413538 0.78933704 0.43413538 -0.24444333 0.93834692
+		 0.24444333 -0.47972047 0.84934115 0.22019956 -0.25912857 0.96584284 0 -0.47972047
+		 0.84934115 0.22019956 -0.24444333 0.93834692 0.24444333 -0.25912857 0.96584284 0
+		 -0.25912857 0.96584284 0 0 1 0 0 1 0 -0.25912857 0.96584284 0 0 1 0 -0.47972047 0.84934115
+		 0.22019956 -0.25912857 0.96584284 0 -0.49698827 0.86775726 0 -0.25912857 0.96584284
+		 0 -0.49698827 0.86775726 0 -0.25912857 0.96584284 0 -0.47972047 0.84934115 0.22019956
+		 -0.64727652 0.64727652 0.40257442 -0.43413538 0.78933704 0.43413538 -0.57735026 0.57735026
+		 0.57735026 -0.43413538 0.78933704 0.43413538 -0.64727652 0.64727652 0.40257442 -0.25912857
+		 0.96584284 0 -0.25912857 0.96584284 0 0 1 0 0 1 0 -0.25912857 0.96584284 0 0 1 0
+		 -0.25912857 0.96584284 0 -0.25912857 0.96584284 0 0 1 0 -0.25912857 0.96584284 0
+		 -0.50289357 0.86434835 0 -0.25912857 0.96584284 0 -0.50289357 0.86434835 0 -0.49698827
+		 0.86775726 0 -0.25912857 0.96584284 0 -0.25912857 0.96584284 0 -0.50289357 0.86434835
+		 0 -0.25912857 0.96584284 0 -0.50289357 0.86434835 0 -0.50289357 0.86434835 0 -0.25912857
+		 0.96584284 0 -0.50289357 0.86434835 0 -0.50289357 0.86434835 0 -0.25912857 0.96584284
+		 0 -0.50289357 0.86434835 0 -0.70710677 0.70710677 0 -0.49698827 0.86775726 0 -0.50289357
+		 0.86434835 0 -0.70710677 0.70710677 0 -0.50289357 0.86434835 0 -0.70710677 0.70710677
+		 0 -0.70710677 0.70710677 0 -0.50289357 0.86434835 0 -0.50289357 0.86434835 0 -0.70710677
+		 0.70710677 0 -0.50289357 0.86434835 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677
+		 0 -0.50289357 0.86434835 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.50289357
+		 0.86434835 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.86434835 0.50289357
+		 0 -0.86434835 0.50289357 0 -0.86434835 0.50289357 0 -0.70710677 0.70710677 0 -0.70710677
+		 0.70710677 0 -0.86434835 0.50289357 0 -0.70710677 0.70710677 0 -0.86434835 0.50289357
+		 0;
+	setAttr ".n[664:829]" -type "float3"  -0.70710677 0.70710677 0 -0.86434835
+		 0.50289357 0 -0.70710677 0.70710677 0 -0.86775726 0.49698827 0 -0.70710677 0.70710677
+		 0 -0.86775726 0.49698827 0 -0.70710677 0.70710677 0 -0.86434835 0.50289357 0 -0.6910308
+		 0.6910308 0.21202081 -0.49698827 0.86775726 0 -0.70710677 0.70710677 0 -0.86775726
+		 0.49698827 0 -0.6910308 0.6910308 0.21202081 -0.70710677 0.70710677 0 -0.49698827
+		 0.86775726 0 -0.6910308 0.6910308 0.21202081 -0.47972047 0.84934115 0.22019956 -0.64727652
+		 0.64727652 0.40257442 -0.47972047 0.84934115 0.22019956 -0.6910308 0.6910308 0.21202081
+		 -0.86775726 0.49698827 0 -0.84934115 0.47972047 0.22019956 -0.6910308 0.6910308 0.21202081
+		 -0.84934115 0.47972047 0.22019956 -0.64727652 0.64727652 0.40257442 -0.6910308 0.6910308
+		 0.21202081 -0.86434835 0.50289357 0 -0.96584284 0.25912857 0 -0.86775726 0.49698827
+		 0 -0.96584284 0.25912857 0 -0.84934115 0.47972047 0.22019956 -0.86775726 0.49698827
+		 0 -0.84934115 0.47972047 0.22019956 -0.78933704 0.43413538 0.43413538 -0.64727652
+		 0.64727652 0.40257442 -0.78933704 0.43413538 0.43413538 -0.57735026 0.57735026 0.57735026
+		 -0.64727652 0.64727652 0.40257442 -0.96584284 0.25912857 0 -0.93834692 0.24444333
+		 0.24444333 -0.84934115 0.47972047 0.22019956 -0.93834692 0.24444333 0.24444333 -0.78933704
+		 0.43413538 0.43413538 -0.84934115 0.47972047 0.22019956 -0.96584284 0.25912857 0
+		 -0.86434835 0.50289357 0 -0.96584284 0.25912857 0 -0.86434835 0.50289357 0 -0.96584284
+		 0.25912857 0 -0.86434835 0.50289357 0 -1 0 0 -0.93834692 0.24444333 0.24444333 -0.96584284
+		 0.25912857 0 -0.96584284 0.25912857 0 -1 0 0 -0.96584284 0.25912857 0 -0.96584284
+		 0.25912857 0 -0.86434835 0.50289357 0 -0.96584284 0.25912857 0 -0.86434835 0.50289357
+		 0 -0.86434835 0.50289357 0 -0.96584284 0.25912857 0 -0.96584284 0.25912857 0 -0.96584284
+		 0.25912857 0 -0.86434835 0.50289357 0 -0.96584284 0.25912857 0 -1 0 0 -0.96584284
+		 0.25912857 0 -1 0 0 -0.96584284 0.25912857 0 -1 0 0 -0.96584284 0.25912857 0 -0.96584284
+		 0.25912857 0 -1 0 0 -1 0 0 -0.96584284 0.25912857 0 -1 0 0 -1 0 0 -1 0 0 -0.96584284
+		 0.25912857 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -0.96584284 0 0.25912857 -1 0 0
+		 -0.93834692 0.24444333 0.24444333 -1 0 0 -0.96584284 0 0.25912857 -1 0 0 -0.96584284
+		 0 0.25912857 -1 0 0 -0.96584284 0 0.25912857 -0.96584284 0 0.25912857 -1 0 0 -0.96584284
+		 0 0.25912857 -0.96584284 0 0.25912857 -1 0 0 -0.96584284 0 0.25912857 -0.84934115
+		 0.22019956 0.47972047 -0.93834692 0.24444333 0.24444333 -0.78933704 0.43413538 0.43413538
+		 -0.93834692 0.24444333 0.24444333 -0.84934115 0.22019956 0.47972047 -0.96584284 0
+		 0.25912857 -0.86775726 0 0.49698827 -0.96584284 0 0.25912857 -0.84934115 0.22019956
+		 0.47972047 -0.96584284 0 0.25912857 -0.86775726 0 0.49698827 -0.96584284 0 0.25912857
+		 -0.86775726 0 0.49698827 -0.96584284 0 0.25912857 -0.86775726 0 0.49698827 -0.86775726
+		 0 0.49698827 -0.96584284 0 0.25912857 -0.86434835 0 0.50289357 -0.86775726 0 0.49698827
+		 -0.96584284 0 0.25912857 -0.86434835 0 0.50289357 -0.70710677 0 0.70710677 -0.86775726
+		 0 0.49698827 -0.70710677 0 0.70710677 -0.70710677 0 0.70710677 -0.86775726 0 0.49698827
+		 -0.86775726 0 0.49698827 -0.70710677 0 0.70710677 -0.86775726 0 0.49698827 -0.70710677
+		 0 0.70710677 -0.49698827 0 0.86775726;
+	setAttr ".n[830:953]" -type "float3"  -0.70710677 0 0.70710677 -0.6910308 0.21202081
+		 0.6910308 -0.86775726 0 0.49698827 -0.70710677 0 0.70710677 -0.49698827 0 0.86775726
+		 -0.6910308 0.21202081 0.6910308 -0.70710677 0 0.70710677 -0.86775726 0 0.49698827
+		 -0.6910308 0.21202081 0.6910308 -0.84934115 0.22019956 0.47972047 -0.6910308 0.21202081
+		 0.6910308 -0.49698827 0 0.86775726 -0.47972047 0.22019956 0.84934115 -0.64727652
+		 0.40257442 0.64727652 -0.84934115 0.22019956 0.47972047 -0.6910308 0.21202081 0.6910308
+		 -0.47972047 0.22019956 0.84934115 -0.64727652 0.40257442 0.64727652 -0.6910308 0.21202081
+		 0.6910308 -0.84934115 0.22019956 0.47972047 -0.64727652 0.40257442 0.64727652 -0.78933704
+		 0.43413538 0.43413538 -0.64727652 0.40257442 0.64727652 -0.47972047 0.22019956 0.84934115
+		 -0.43413538 0.43413538 0.78933704 -0.57735026 0.57735026 0.57735026 -0.78933704 0.43413538
+		 0.43413538 -0.64727652 0.40257442 0.64727652 -0.43413538 0.43413538 0.78933704 -0.57735026
+		 0.57735026 0.57735026 -0.64727652 0.40257442 0.64727652 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1;
+	setAttr -s 318 -ch 954 ".fc[0:317]" -type "polyFaces" 
+		f 3 0 1 2
+		mu 0 3 0 1 2
+		f 3 -3 3 4
+		mu 0 3 0 2 3
+		f 3 5 6 7
+		mu 0 3 4 5 6
+		f 3 -8 8 9
+		mu 0 3 4 6 7
+		f 3 -9 10 11
+		mu 0 3 7 6 8
+		f 3 -12 12 13
+		mu 0 3 7 8 9
+		f 3 -13 14 15
+		mu 0 3 9 8 10
+		f 3 -16 16 17
+		mu 0 3 9 10 11
+		f 3 18 -18 19
+		mu 0 3 12 9 11
+		f 3 20 21 -19
+		mu 0 3 12 13 9
+		f 3 22 23 24
+		mu 0 3 13 14 15
+		f 3 -23 -21 25
+		mu 0 3 14 13 12
+		f 3 -26 26 27
+		mu 0 3 14 12 16
+		f 3 -27 28 29
+		mu 0 3 16 12 17
+		f 3 -20 30 31
+		mu 0 3 12 11 18
+		f 3 -31 32 33
+		mu 0 3 18 11 19
+		f 3 34 -33 35
+		mu 0 3 20 19 11
+		f 3 -17 36 -36
+		mu 0 3 11 10 20
+		f 3 -35 37 38
+		mu 0 3 19 20 21
+		f 3 39 -37 40
+		mu 0 3 22 20 10
+		f 3 41 -38 42
+		mu 0 3 23 21 20
+		f 3 -40 43 -43
+		mu 0 3 20 22 23
+		f 3 -42 44 45
+		mu 0 3 21 23 24
+		f 3 46 -44 47
+		mu 0 3 25 23 22
+		f 3 48 -45 49
+		mu 0 3 26 24 23
+		f 3 -47 50 -50
+		mu 0 3 23 25 26
+		f 3 51 52 -49
+		mu 0 3 26 27 24
+		f 3 53 -51 54
+		mu 0 3 28 26 25
+		f 3 -52 55 56
+		mu 0 3 27 26 29
+		f 3 57 -56 -54
+		mu 0 3 28 29 26
+		f 3 58 59 -57
+		mu 0 3 29 30 27
+		f 3 -58 60 61
+		mu 0 3 29 28 31
+		f 3 -59 62 63
+		mu 0 3 30 29 32
+		f 3 64 -63 -62
+		mu 0 3 31 32 29
+		f 3 65 66 -64
+		mu 0 3 32 33 30
+		f 3 -65 67 68
+		mu 0 3 32 31 34
+		f 3 -66 69 70
+		mu 0 3 33 32 35
+		f 3 71 -70 -69
+		mu 0 3 34 35 32
+		f 3 -72 72 73
+		mu 0 3 35 34 36
+		f 3 74 75 76
+		mu 0 3 37 38 39
+		f 3 77 78 -75
+		mu 0 3 37 40 38
+		f 3 -78 79 80
+		mu 0 3 40 37 41
+		f 3 81 -80 82
+		mu 0 3 42 41 37
+		f 3 -82 83 84
+		mu 0 3 41 42 43
+		f 3 85 -84 86
+		mu 0 3 44 43 42
+		f 3 -86 87 88
+		mu 0 3 43 44 45
+		f 3 89 -88 90
+		mu 0 3 46 45 44
+		f 3 91 92 -90
+		mu 0 3 46 47 45
+		f 3 -92 93 94
+		mu 0 3 47 46 48
+		f 3 95 96 -95
+		mu 0 3 48 49 47
+		f 3 -96 97 98
+		mu 0 3 49 48 50
+		f 3 99 100 -99
+		mu 0 3 50 51 49
+		f 3 -100 101 102
+		mu 0 3 51 50 52
+		f 3 103 -103 104
+		mu 0 3 53 51 52
+		f 3 -104 105 106
+		mu 0 3 51 53 54
+		f 3 107 108 -106
+		mu 0 3 53 55 54
+		f 3 -108 109 110
+		mu 0 3 55 53 56
+		f 3 111 112 -111
+		mu 0 3 56 57 55
+		f 3 -112 113 114
+		mu 0 3 57 56 58
+		f 3 115 116 -115
+		mu 0 3 58 59 57
+		f 3 -116 117 118
+		mu 0 3 59 58 60
+		f 3 -119 119 120
+		mu 0 3 59 60 61
+		f 3 121 -120 122
+		mu 0 3 62 61 60
+		f 3 -122 123 124
+		mu 0 3 61 62 63
+		f 3 125 -124 126
+		mu 0 3 64 63 62
+		f 3 -126 127 128
+		mu 0 3 63 64 65
+		f 3 129 -128 130
+		mu 0 3 66 65 64
+		f 3 131 -130 132
+		mu 0 3 3 65 66
+		f 3 -4 133 -132
+		mu 0 3 3 2 65
+		f 3 -76 134 135
+		mu 0 3 67 68 69
+		f 3 -136 136 137
+		mu 0 3 67 69 70
+		f 3 138 139 -137
+		mu 0 3 69 71 70
+		f 3 -140 -6 140
+		mu 0 3 70 71 72
+		f 3 141 -139 142
+		mu 0 3 73 71 69
+		f 3 143 -142 144
+		mu 0 3 74 71 73
+		f 3 145 146 147
+		mu 0 3 71 75 76
+		f 3 -144 148 -146
+		mu 0 3 71 74 75
+		f 3 -149 149 150
+		mu 0 3 75 74 77
+		f 3 -150 151 152
+		mu 0 3 77 74 78
+		f 3 -133 153 154
+		mu 0 3 79 80 81
+		f 3 155 -154 156
+		mu 0 3 82 81 80
+		f 3 -156 157 -14
+		mu 0 3 81 82 83
+		f 3 158 -157 -131
+		mu 0 3 84 82 80
+		f 3 159 -158 160
+		mu 0 3 85 83 82
+		f 3 -160 161 -10
+		mu 0 3 83 85 86
+		f 3 -159 162 163
+		mu 0 3 82 84 87
+		f 3 164 -161 -164
+		mu 0 3 87 85 82
+		f 3 -162 165 -141
+		mu 0 3 86 85 88
+		f 3 -163 166 167
+		mu 0 3 87 84 89
+		f 3 -127 168 -167
+		mu 0 3 84 90 89
+		f 3 -165 169 170
+		mu 0 3 85 87 91
+		f 3 171 -170 -168
+		mu 0 3 89 91 87
+		f 3 -169 172 173
+		mu 0 3 89 90 92
+		f 3 -123 174 -173
+		mu 0 3 90 93 92
+		f 3 175 -175 -118
+		mu 0 3 94 92 93
+		f 3 -174 176 177
+		mu 0 3 89 92 95
+		f 3 -176 178 -177
+		mu 0 3 92 94 95
+		f 3 -172 -178 179
+		mu 0 3 91 89 95
+		f 3 180 -179 -114
+		mu 0 3 96 95 94
+		f 3 -181 181 -180
+		mu 0 3 95 96 91
+		f 3 182 -171 -182
+		mu 0 3 96 85 91
+		f 3 183 -183 -110
+		mu 0 3 97 85 96
+		f 3 184 185 -184
+		mu 0 3 97 98 85
+		f 3 -186 186 -166
+		mu 0 3 85 98 88
+		f 3 -187 -77 -138
+		mu 0 3 88 98 99
+		f 3 187 -185 -105
+		mu 0 3 100 98 97
+		f 3 188 189 -188
+		mu 0 3 100 101 98
+		f 3 -189 -102 -98
+		mu 0 3 101 100 102
+		f 3 190 -83 -190
+		mu 0 3 101 103 98
+		f 3 -191 191 -87
+		mu 0 3 103 101 104
+		f 3 -192 -94 -91
+		mu 0 3 104 101 105
+		f 3 192 193 194
+		mu 0 3 106 107 108
+		f 3 -193 195 196
+		mu 0 3 107 106 109
+		f 3 197 -196 198
+		mu 0 3 110 109 106
+		f 3 -198 199 200
+		mu 0 3 109 110 111
+		f 3 -197 201 202
+		mu 0 3 107 109 112
+		f 3 203 204 205
+		mu 0 3 113 109 114
+		f 3 -202 -204 206
+		mu 0 3 112 109 113
+		f 3 207 -207 208
+		mu 0 3 115 112 113
+		f 3 209 -1 -208
+		mu 0 3 115 116 112
+		f 3 210 211 -210
+		mu 0 3 115 117 116
+		f 3 212 213 -211
+		mu 0 3 115 118 117
+		f 3 -213 214 215
+		mu 0 3 118 115 119
+		f 3 216 217 -214
+		mu 0 3 118 120 117
+		f 3 -217 218 219
+		mu 0 3 120 118 121
+		f 3 -219 220 221
+		mu 0 3 121 118 122
+		f 3 222 -46 -53
+		mu 0 3 123 124 125
+		f 3 -223 223 224
+		mu 0 3 124 123 126
+		f 3 -225 -34 -39
+		mu 0 3 124 126 127
+		f 3 225 -224 -60
+		mu 0 3 128 126 123
+		f 3 226 -226 -67
+		mu 0 3 129 126 128
+		f 3 227 -32 -227
+		mu 0 3 129 130 126
+		f 3 -228 228 229
+		mu 0 3 130 129 131
+		f 3 -229 230 231
+		mu 0 3 131 129 132
+		f 3 232 -232 233
+		mu 0 3 133 131 132
+		f 3 234 -29 -230
+		mu 0 3 131 134 130
+		f 3 -205 235 -233
+		mu 0 3 133 135 131
+		f 3 236 -235 237
+		mu 0 3 136 134 131
+		f 3 238 -238 -236
+		mu 0 3 135 136 131
+		f 3 239 -30 -237
+		mu 0 3 136 137 134
+		f 3 240 -239 -201
+		mu 0 3 138 136 135
+		f 3 241 -240 242
+		mu 0 3 139 137 136
+		f 3 243 -243 -241
+		mu 0 3 138 139 136
+		f 3 244 -28 -242
+		mu 0 3 139 140 137
+		f 3 245 -244 -200
+		mu 0 3 141 139 138
+		f 3 246 -245 247
+		mu 0 3 142 140 139
+		f 3 248 -248 -246
+		mu 0 3 141 142 139
+		f 3 249 -24 -247
+		mu 0 3 142 143 140
+		f 3 250 -249 -199
+		mu 0 3 144 142 141
+		f 3 251 -250 252
+		mu 0 3 145 143 142
+		f 3 253 -253 -251
+		mu 0 3 144 145 142
+		f 3 254 -25 -252
+		mu 0 3 145 146 143
+		f 3 255 -254 -195
+		mu 0 3 147 145 144
+		f 3 -155 -22 256
+		mu 0 3 148 149 146
+		f 3 257 258 -256
+		mu 0 3 147 150 145
+		f 3 259 -255 -259
+		mu 0 3 150 146 145
+		f 3 -260 260 -257
+		mu 0 3 146 150 148
+		f 3 261 -258 -194
+		mu 0 3 151 150 147
+		f 3 -5 -261 262
+		mu 0 3 152 148 150
+		f 3 -262 -203 -263
+		mu 0 3 150 151 152
+		f 3 263 264 -215
+		mu 0 3 153 154 155
+		f 3 -265 265 266
+		mu 0 3 155 154 156
+		f 3 -267 267 -216
+		mu 0 3 155 156 157
+		f 3 268 269 -266
+		mu 0 3 154 158 156
+		f 3 -268 270 271
+		mu 0 3 157 156 159
+		f 3 -272 272 -221
+		mu 0 3 157 159 160
+		f 3 -270 273 274
+		mu 0 3 156 158 161
+		f 3 -275 275 -271
+		mu 0 3 156 161 159
+		f 3 -273 276 277
+		mu 0 3 160 159 162
+		f 3 -278 278 -222
+		mu 0 3 160 162 163
+		f 3 -276 279 280
+		mu 0 3 159 161 164
+		f 3 -281 281 -277
+		mu 0 3 159 164 162
+		f 3 282 283 -274
+		mu 0 3 158 165 161
+		f 3 -283 -73 284
+		mu 0 3 165 158 166
+		f 3 285 286 -280
+		mu 0 3 161 167 164
+		f 3 -286 -284 287
+		mu 0 3 167 161 165
+		f 3 288 289 -285
+		mu 0 3 166 168 165
+		f 3 -289 -68 290
+		mu 0 3 168 166 169
+		f 3 291 292 -288
+		mu 0 3 165 170 167
+		f 3 -292 -290 293
+		mu 0 3 170 165 168
+		f 3 294 295 -291
+		mu 0 3 169 171 168
+		f 3 -295 -61 296
+		mu 0 3 171 169 172
+		f 3 297 -297 -55
+		mu 0 3 173 171 172
+		f 3 298 -296 299
+		mu 0 3 174 168 171
+		f 3 -299 300 -294
+		mu 0 3 168 174 170
+		f 3 301 302 -298
+		mu 0 3 173 175 171
+		f 3 303 -300 -303
+		mu 0 3 175 174 171
+		f 3 304 -302 -48
+		mu 0 3 176 175 173
+		f 3 305 -301 306
+		mu 0 3 177 170 174
+		f 3 307 308 -305
+		mu 0 3 176 178 175
+		f 3 309 -308 -41
+		mu 0 3 179 178 176
+		f 3 310 311 -304
+		mu 0 3 175 180 174
+		f 3 312 -311 -309
+		mu 0 3 178 180 175
+		f 3 313 -307 -312
+		mu 0 3 180 177 174
+		f 3 -310 314 315
+		mu 0 3 178 179 181
+		f 3 316 -315 -15
+		mu 0 3 182 181 179
+		f 3 -313 317 318
+		mu 0 3 180 178 183
+		f 3 319 -318 -316
+		mu 0 3 181 183 178
+		f 3 320 -317 321
+		mu 0 3 184 181 182
+		f 3 322 -322 -11
+		mu 0 3 185 184 182
+		f 3 -320 323 324
+		mu 0 3 183 181 186
+		f 3 325 -324 -321
+		mu 0 3 184 186 181
+		f 3 326 327 -319
+		mu 0 3 183 187 180
+		f 3 -314 -328 328
+		mu 0 3 177 180 187
+		f 3 329 -323 330
+		mu 0 3 188 184 185
+		f 3 331 -331 -7
+		mu 0 3 189 188 185
+		f 3 332 -332 -148
+		mu 0 3 190 188 189
+		f 3 333 334 -330
+		mu 0 3 188 191 184
+		f 3 335 -326 -335
+		mu 0 3 191 186 184
+		f 3 336 337 -333
+		mu 0 3 190 192 188
+		f 3 338 -334 -338
+		mu 0 3 192 191 188
+		f 3 339 -337 -147
+		mu 0 3 193 192 190
+		f 3 340 341 -336
+		mu 0 3 191 194 186
+		f 3 342 343 -340
+		mu 0 3 193 195 192
+		f 3 344 -343 -151
+		mu 0 3 196 195 193
+		f 3 345 346 -339
+		mu 0 3 192 197 191
+		f 3 347 -346 -344
+		mu 0 3 195 197 192
+		f 3 348 -341 -347
+		mu 0 3 197 194 191
+		f 3 -345 349 350
+		mu 0 3 195 196 198
+		f 3 351 -350 -153
+		mu 0 3 199 198 196
+		f 3 352 353 -348
+		mu 0 3 195 200 197
+		f 3 -353 -351 354
+		mu 0 3 200 195 198
+		f 3 355 356 -349
+		mu 0 3 197 201 194
+		f 3 -356 -354 357
+		mu 0 3 201 197 200
+		f 3 358 -342 359
+		mu 0 3 202 186 194
+		f 3 360 -360 -357
+		mu 0 3 201 202 194
+		f 3 -359 361 -325
+		mu 0 3 186 202 183
+		f 3 -327 -362 362
+		mu 0 3 187 183 202
+		f 3 363 364 -361
+		mu 0 3 201 203 202
+		f 3 365 -363 -365
+		mu 0 3 203 187 202
+		f 3 366 367 -358
+		mu 0 3 200 204 201
+		f 3 368 -364 -368
+		mu 0 3 204 203 201
+		f 3 369 370 -366
+		mu 0 3 203 205 187
+		f 3 371 -329 -371
+		mu 0 3 205 177 187
+		f 3 372 373 -369
+		mu 0 3 204 206 203
+		f 3 374 -370 -374
+		mu 0 3 206 205 203
+		f 3 -367 375 376
+		mu 0 3 204 200 207
+		f 3 377 -376 -355
+		mu 0 3 198 207 200
+		f 3 378 -373 379
+		mu 0 3 208 206 204
+		f 3 380 -380 -377
+		mu 0 3 207 208 204
+		f 3 -378 381 382
+		mu 0 3 207 198 209
+		f 3 -352 383 -382
+		mu 0 3 198 199 209
+		f 3 384 -384 -152
+		mu 0 3 210 209 199
+		f 3 385 386 -383
+		mu 0 3 209 211 207
+		f 3 -381 -387 387
+		mu 0 3 208 207 211
+		f 3 -385 388 389
+		mu 0 3 209 210 212
+		f 3 -386 -390 390
+		mu 0 3 211 209 212
+		f 3 391 -389 -145
+		mu 0 3 213 212 210
+		f 3 392 393 -392
+		mu 0 3 213 214 212
+		f 3 -393 -143 394
+		mu 0 3 214 213 215
+		f 3 395 -391 396
+		mu 0 3 216 211 212
+		f 3 -394 397 -397
+		mu 0 3 212 214 216
+		f 3 -79 398 -135
+		mu 0 3 217 218 215
+		f 3 -395 -399 399
+		mu 0 3 214 215 218
+		f 3 -396 400 401
+		mu 0 3 211 216 219
+		f 3 -402 -134 402
+		mu 0 3 211 219 220
+		f 3 -401 403 -129
+		mu 0 3 219 216 221
+		f 3 404 -403 405
+		mu 0 3 222 211 220
+		f 3 -405 406 -388
+		mu 0 3 211 222 208
+		f 3 407 -406 -2
+		mu 0 3 223 222 220
+		f 3 -212 408 -408
+		mu 0 3 223 224 222
+		f 3 409 410 -407
+		mu 0 3 222 225 208
+		f 3 -379 -411 411
+		mu 0 3 206 208 225
+		f 3 412 413 -409
+		mu 0 3 224 226 222
+		f 3 414 -410 -414
+		mu 0 3 226 225 222
+		f 3 415 -413 -218
+		mu 0 3 227 226 224
+		f 3 416 417 -412
+		mu 0 3 225 228 206
+		f 3 -375 -418 418
+		mu 0 3 205 206 228
+		f 3 419 420 -415
+		mu 0 3 226 229 225
+		f 3 -417 -421 421
+		mu 0 3 228 225 229
+		f 3 422 423 -416
+		mu 0 3 227 230 226
+		f 3 424 -420 -424
+		mu 0 3 230 229 226
+		f 3 425 -423 -220
+		mu 0 3 163 230 227
+		f 3 -279 426 -426
+		mu 0 3 163 162 230
+		f 3 427 428 -427
+		mu 0 3 162 231 230
+		f 3 -429 429 -425
+		mu 0 3 230 231 229
+		f 3 -282 430 -428
+		mu 0 3 162 164 231
+		f 3 431 -430 432
+		mu 0 3 232 229 231
+		f 3 433 -433 -431
+		mu 0 3 164 232 231
+		f 3 -432 434 -422
+		mu 0 3 229 232 228
+		f 3 -434 -287 435
+		mu 0 3 232 164 167
+		f 3 436 -435 437
+		mu 0 3 233 228 232
+		f 3 438 -438 -436
+		mu 0 3 167 233 232
+		f 3 -437 439 -419
+		mu 0 3 228 233 205
+		f 3 -439 -293 440
+		mu 0 3 233 167 170
+		f 3 -372 -440 441
+		mu 0 3 177 205 233
+		f 3 -306 -442 -441
+		mu 0 3 170 177 233
+		f 3 -404 442 443
+		mu 0 3 221 216 234
+		f 3 -398 444 -443
+		mu 0 3 216 214 234
+		f 3 445 -444 446
+		mu 0 3 235 221 234
+		f 3 -446 447 -125
+		mu 0 3 221 235 236
+		f 3 -445 448 449
+		mu 0 3 234 214 237
+		f 3 -450 450 -447
+		mu 0 3 234 237 235
+		f 3 451 -448 452
+		mu 0 3 238 236 235
+		f 3 -452 453 -121
+		mu 0 3 236 238 239
+		f 3 454 -117 -454
+		mu 0 3 238 240 239
+		f 3 455 -453 456
+		mu 0 3 241 238 235
+		f 3 -455 -456 457
+		mu 0 3 240 238 241
+		f 3 -451 458 -457
+		mu 0 3 235 237 241
+		f 3 459 -113 -458
+		mu 0 3 241 242 240
+		f 3 -460 -459 460
+		mu 0 3 242 241 237
+		f 3 461 -461 -449
+		mu 0 3 214 242 237
+		f 3 -462 462 -109
+		mu 0 3 242 214 243
+		f 3 -400 463 -463
+		mu 0 3 214 218 243
+		f 3 -464 464 -107
+		mu 0 3 243 218 244
+		f 3 465 466 -465
+		mu 0 3 218 245 244
+		f 3 -467 -97 -101
+		mu 0 3 244 245 246
+		f 3 -466 -81 467
+		mu 0 3 245 218 247
+		f 3 -468 -85 468
+		mu 0 3 245 247 248
+		f 3 -469 -89 -93
+		mu 0 3 245 248 249
+		f 3 469 -74 -269
+		mu 0 3 250 251 252
+		f 3 470 -231 -71
+		mu 0 3 251 253 254
+		f 3 471 472 -470
+		mu 0 3 250 255 251
+		f 3 -471 -473 473
+		mu 0 3 253 251 255
+		f 3 474 -472 -264
+		mu 0 3 256 255 250
+		f 3 475 -234 -474
+		mu 0 3 255 257 253
+		f 3 -209 476 -475
+		mu 0 3 256 258 255
+		f 3 -476 -477 -206
+		mu 0 3 257 255 258;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "Concrete_FloorCorner" -p "Bp_Layout";
+	rename -uid "3789B395-4EE1-3249-7C70-26B8FA080AFC";
+	setAttr ".t" -type "double3" 253.81990051269531 -257.86102294921875 238.14228820800781 ;
+	setAttr ".r" -type "double3" 0 0 -89.999999302826964 ;
+createNode mesh -n "Concrete_FloorCornerShape" -p "Concrete_FloorCorner";
+	rename -uid "80D54CA1-4053-0801-B963-7FAD53C472F2";
+	setAttr -k off ".v";
+	setAttr -s 6 ".iog";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:119]";
+	setAttr ".iog[1].og[0].gcl" -type "componentList" 1 "f[0:119]";
+	setAttr ".iog[2].og[0].gcl" -type "componentList" 1 "f[0:119]";
+	setAttr ".iog[3].og[0].gcl" -type "componentList" 1 "f[0:119]";
+	setAttr ".iog[4].og[0].gcl" -type "componentList" 1 "f[0:119]";
+	setAttr ".iog[5].og[0].gcl" -type "componentList" 1 "f[0:119]";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 2 ".uvst";
+	setAttr ".uvst[0].uvsn" -type "string" "UVmap_0";
+	setAttr -s 96 ".uvst[0].uvsp[0:95]" -type "float2" 0.21826172 0.83068848
+		 0.21496582 0.78625488 0.2199707 0.78710938 0.21044922 0.78393555 0.20690918 0.78027344
+		 0.11206055 0.83007813 0.20458984 0.77575684 0.20385742 0.77075195 0.11169434 0.83007813
+		 0.18835449 0.6472168 0.11315918 0.64672852 0.11120605 0.98320007 0.21716309 0.98381042
+		 0.014701843 0.98265076 0.015586853 0.82946777 0.44873047 0.83190918 0.44775391 0.9851532
+		 0.44873047 0.78833008 0.11193848 0.83007813 0.19335938 0.64819336 0.20446777 0.66357422
+		 0.19787598 0.65039063 0.20373535 0.65869141 0.20141602 0.65405273 0.57763672 0.3125
+		 0.47973633 0.60473633 0.48022461 0.3125 0.57714844 0.60473633 0.66552734 0.60473633
+		 0.47998047 0.0083007813 0.57714844 0.0083007813 0.66699219 0.3125 0.66992188 0.60473633
+		 0.66699219 0.0068359375 0.67236328 0.3125 0.67236328 0.0068359375 0.67724609 0.3125
+		 0.67480469 0.60473633 0.67724609 0.0068359375 0.67919922 0.60473633 0.68261719 0.3125
+		 0.68261719 0.0068359375 0.68359375 0.60473633 0.6875 0.3125 0.6875 0.0068359375 0.68847656
+		 0.60473633 0.69238281 0.3125 0.69287109 0.0068359375 0.79980469 0.31298828 0.79443359
+		 0.60473633 0.80029297 0.0083007813 0.80517578 0.31298828 0.79980469 0.60473633 0.80517578
+		 0.0083007813 0.81005859 0.31298828 0.80517578 0.60473633 0.81054688 0.0083007813
+		 0.81542969 0.31298828 0.81054688 0.60473633 0.81542969 0.0083007813 0.016647339 0.64624023
+		 0.47973633 0.62768555 0.57763672 0.62768555 0.65576172 0.62768555 0.6640625 0.62768555
+		 0.67285156 0.62768555 0.68115234 0.62768555 0.68994141 0.62768555 0.69775391 0.62768555
+		 0.80615234 0.62768555 0.81005859 0.62768555 0.81445313 0.62768555 0.81933594 0.62768555
+		 0.0094451904 0.62915039 0.021636963 0.60961914 0.01399231 0.63061523 0.026702881
+		 0.60986328 0.018463135 0.63061523 0.031829834 0.60986328 0.25 0.63012695 0.24987793
+		 0.60961914 0.30810547 0.62402344 0.2644043 0.62402344 0.30761719 0.31933594 0.4609375
+		 0.6237793 0.24951172 0.31933594 0.46069336 0.31933594 0.30737305 0.014648438 0.24926758
+		 0.014648438 0.46069336 0.014160156 0.031921387 0.014648438 0.032196045 0.31933594
+		 0.026824951 0.014648438 0.027130127 0.31933594 0.021743774 0.014648438 0.02204895
+		 0.31933594;
+	setAttr ".uvst[1].uvsn" -type "string" "LightMapUV";
+	setAttr -s 103 ".uvst[1].uvsp[0:102]" -type "float2" 0.30908203 0.46826172
+		 0.28442383 0.49560547 0.28686523 0.49121094 0.45556641 0.20166016 0.28100586 0.50024414
+		 0.28125 0.50024414 0.35888672 0.15087891 0.28149414 0.50024414 0.28173828 0.50024414
+		 0.36279297 0.15136719 0.47802734 0.015136719 0.35961914 0.015136719 0.35961914 0.28564453
+		 0.3581543 0.14550781 0.49975586 0.28564453 0.35961914 0.14550781 0.39257813 0.21582031
+		 0.64013672 0.28564453 0.33544922 0.41113281 0.31225586 0.32373047 0.36352539 0.14599609
+		 0.48950195 0.10253906 0.48120117 0.016113281 0.48950195 0.026855469 0.48413086 0.018066406
+		 0.48852539 0.0234375 0.48657227 0.020507813 0.27880859 0.64038086 0.1451416 0.64038086
+		 0.27880859 0.51171875 0.0047912598 0.64038086 0.1451416 0.51171875 0.27880859 0.50952148
+		 0.0047912598 0.51171875 0.1451416 0.5078125 0.0047912598 0.50952148 0.1451416 0.50415039
+		 0.27880859 0.50708008 0.0047912598 0.50708008 0.27880859 0.50488281 0.1451416 0.50024414
+		 0.0047912598 0.50488281 0.27880859 0.50244141 0.0047912598 0.50244141 0.27880859
+		 0.50024414 0.0047912598 0.50024414 0.1451416 0.49853516 0.27905273 0.50024414 0.006187439
+		 0.5 0.1451416 0.49707031 0.27929688 0.50024414 0.007183075 0.49902344 0.1451416 0.49560547
+		 0.27954102 0.50024414 0.0075531006 0.49755859 0.35961914 0.16552734 0.35961914 0.10351563
+		 0.35961914 0.0048828125 0.48828125 0.0048828125 0.49047852 0.0073242188 0.49291992
+		 0.0092773438 0.49511719 0.01171875 0.49755859 0.014160156 0.49975586 0.016113281
+		 0.49975586 0.091796875 0.4987793 0.092773438 0.49047852 0.1015625 0.49780273 0.09375
+		 0.49145508 0.10058594 0.49682617 0.094726563 0.4921875 0.099609375 0.27905273 0.49658203
+		 0.27880859 0.49267578 0.27880859 0.35986328 0.1451416 0.14550781 0.28540039 0.28564453
+		 0.1451416 0.35986328 0.28540039 0.14550781 0.1451416 0.0048828125 0.0047912598 0.35986328
+		 0.28540039 0.0048828125 0.0047912598 0.49267578 0.1451416 0.49267578 0.0069694519
+		 0.49609375 0.1451416 0.49414063 0.35961914 0.28564453 0.35961914 0.14550781 0.1451416
+		 0.64038086 0.27880859 0.64038086 0.1451416 0.64038086 0.1451416 0.64038086 0.0047912598
+		 0.64038086 0.0047912598 0.64038086 0.1451416 0.50024414 0.1451416 0.50024414 0.1451416
+		 0.50024414 0.27880859 0.50024414 0.0047912598 0.50024414 0.35961914 0.015136719 0.35961914
+		 0.10351563 0.35961914 0.015136719 0.35961914 0.0048828125 0.35961914 0.0048828125;
+	setAttr ".cuvs" -type "string" "UVmap_0";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr -s 74 ".vt[0:73]"  4.75456285 82.11116791 1.026690245 -3.47125673 -28.33113098 1.026690245
+		 9.018569946 -26.35313034 1.026690245 -14.73853016 -34.072006226 1.026690245 -23.6803093 -43.013725281 1.026690245
+		 -258.72894287 82.11122894 1.026690245 -29.42129517 -54.28097534 1.026690245 -31.39950562 -66.77088928 1.026690245
+		 -258.72891235 82.11122894 1.026690245 -71.81743622 -373.48214722 1.026690245 -258.72854614 -373.4821167 1.026690245
+		 -258.72854614 462.9119873 1.026690245 4.75495291 462.91210938 1.026690245 -495.64215088 462.9119873 1.026690245
+		 -495.64215088 82.11122894 1.026690245 573.37963867 82.11110687 1.026690245 573.37963867 462.91210938 1.026690245
+		 573.37963867 -26.36551094 1.026690245 -258.72891235 82.1112442 1.026690245 -59.32761383 -371.50396729 1.026690245
+		 -31.39951897 -333.064239502 1.026690245 -48.060382843 -365.76300049 1.026690245 -33.37771606 -345.55404663 1.026690245
+		 -39.11865616 -356.82131958 1.026690245 -258.72854614 -409.63619995 -756.80133057
+		 -495.64215088 -409.63619995 -35.12735367 -495.64215088 -409.63619995 -756.80133057
+		 -258.72854614 -409.63619995 -35.12735367 -35.6630249 -409.63623047 -35.12735367 -495.64215088 -409.63619995 -1514.62939453
+		 -258.72854614 -409.63619995 -1514.62939453 -35.6630249 -409.63623047 -756.80133057
+		 -23.17320251 -407.65805054 -35.12735367 -35.6630249 -409.63623047 -1514.62939453
+		 -23.17320251 -407.65805054 -756.80133057 -23.17320251 -407.65805054 -1514.62939453
+		 -11.90597057 -401.91708374 -756.80133057 -11.90596867 -401.91708374 -35.12735367
+		 -11.90596867 -401.91708374 -1514.62939453 -2.96424246 -392.9753418 -35.12735367 -2.96424365 -392.9753418 -756.80133057
+		 -2.96424365 -392.9753418 -1514.62939453 2.7766993 -381.70812988 -35.12735367 2.77669811 -381.70812988 -756.80133057
+		 2.7766993 -381.70812988 -1514.62939453 4.75489426 -369.21832275 -35.12735367 4.7548914 -369.21832275 -756.80133057
+		 4.75489426 -369.21832275 -1514.62939453 4.7548914 -102.93745422 -756.80133057 4.75490761 -102.92597961 -35.12735367
+		 4.7548995 -102.92538452 -1514.62939453 6.73308611 -90.44759369 -756.80133057 6.73312378 -90.43612671 -35.12735367
+		 6.73312092 -90.43552399 -1514.62939453 12.47402954 -79.18041229 -756.80133057 12.47413063 -79.16887665 -35.12735367
+		 12.47413063 -79.16834259 -1514.62939453 21.41575623 -70.23863983 -756.80133057 21.41594315 -70.227211 -35.12735367
+		 21.41594887 -70.22661591 -1514.62939453 -495.64215088 -373.4821167 1.026690245 32.68326187 -64.48634338 -35.12735367
+		 45.17313766 -62.5083313 -35.12735367 573.37963867 -62.51957703 -35.12735367 573.37963867 82.11110687 -756.80133057
+		 573.37963867 -62.51957703 -756.80133057 573.37963867 462.91210938 -756.80133057 573.37963867 82.11110687 -1514.62939453
+		 573.37963867 -62.51957703 -1514.62939453 573.37963867 462.91210938 -1514.62939453
+		 45.17314911 -62.50779724 -1514.62939453 45.17281342 -62.51952362 -756.80133057 32.68327332 -64.48579407 -1514.62939453
+		 32.68298721 -64.49770355 -756.80133057;
+	setAttr -s 193 ".ed";
+	setAttr ".ed[0:165]"  0 1 0 1 2 0 2 0 0 0 3 0 3 1 0 0 4 0 4 3 0 5 6 0 6 4 0
+		 4 5 0 5 7 0 7 6 0 4 8 0 8 5 0 0 8 0 9 8 0 8 10 0 10 9 0 0 11 0 11 8 0 9 5 0 0 12 0
+		 12 11 0 11 13 0 13 8 0 14 8 0 13 14 0 15 12 0 0 15 0 15 16 0 16 12 0 2 15 0 2 17 0
+		 17 15 0 18 5 0 9 18 0 18 7 0 9 19 0 19 18 0 18 20 0 20 7 0 19 21 0 21 18 0 18 22 0
+		 22 20 0 21 23 0 23 18 0 23 22 0 24 25 0 25 26 0 26 24 0 24 27 0 27 25 0 24 28 0 28 27 0
+		 24 29 0 29 30 0 30 24 0 26 29 0 24 31 0 31 28 0 30 31 0 31 32 0 32 28 0 30 33 0 33 31 0
+		 33 34 0 34 31 0 34 32 0 33 35 0 35 34 0 36 32 0 34 36 0 35 36 0 36 37 0 37 32 0 35 38 0
+		 38 36 0 36 39 0 39 37 0 38 40 0 40 36 0 40 39 0 41 40 0 38 41 0 40 42 0 42 39 0 41 43 0
+		 43 40 0 43 42 0 44 43 0 41 44 0 43 45 0 45 42 0 44 46 0 46 43 0 46 45 0 47 46 0 44 47 0
+		 46 48 0 48 45 0 47 48 0 48 49 0 49 45 0 47 50 0 50 48 0 51 49 0 48 51 0 50 51 0 51 52 0
+		 52 49 0 53 51 0 50 53 0 54 52 0 51 54 0 53 54 0 54 55 0 55 52 0 56 54 0 53 56 0 57 55 0
+		 54 57 0 56 57 0 57 58 0 58 55 0 56 59 0 59 57 0 60 8 0 14 60 0 60 10 0 27 60 0 60 25 0
+		 27 10 0 27 9 0 28 9 0 28 19 0 32 19 0 32 21 0 37 21 0 37 23 0 39 23 0 42 23 0 42 22 0
+		 45 22 0 45 20 0 49 20 0 49 7 0 52 7 0 52 6 0 55 6 0 55 4 0 58 4 0 58 3 0 58 1 0 58 61 0
+		 61 1 0 61 2 0 62 2 0 61 62 0 62 17 0 62 63 0 63 17 0 63 15 0 63 64 0 64 15 0 64 16 0;
+	setAttr ".ed[166:192]" 63 65 0 65 64 0 66 16 0 64 66 0 65 67 0 67 64 0 67 66 0
+		 65 68 0 68 67 0 69 66 0 67 69 0 65 70 0 70 68 0 62 65 0 65 71 0 71 70 0 62 71 0 71 72 0
+		 72 70 0 61 71 0 73 72 0 71 73 0 61 73 0 73 59 0 59 72 0 58 73 0 73 57 0;
+	setAttr -s 360 ".n";
+	setAttr ".n[0:165]" -type "float3"  0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0.0078737717 -0.99996901
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0.0078737717 -0.99996901 0 0 -1 0 0.0078737717
+		 -0.99996901 0 0 -1 0 0 -1 0 0.0078737717 -0.99996901 0 0.0078737717 -0.99996901 0
+		 0.0078737717 -0.99996901 0 0.30677295 -0.9517827 0 0.0078737717 -0.99996901 0 0 -1
+		 0 0.0078737717 -0.99996901 0 0.0078737717 -0.99996901 0 0.0078737717 -0.99996901
+		 0 0.30677295 -0.9517827 0 0.30677295 -0.9517827 0 0.0078737717 -0.99996901 0 0.30677295
+		 -0.9517827 0 0.30677295 -0.9517827 0 0.0078737717 -0.99996901 0 0.30677295 -0.9517827
+		 0 0.58863831 -0.80839652 0 0.30677295 -0.9517827 0 0.30677295 -0.9517827 0 0.30677295
+		 -0.9517827 0 0.30677295 -0.9517827 0 0.58863831 -0.80839652 0 0.30677295 -0.9517827
+		 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652 0 0.30677295
+		 -0.9517827 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652
+		 0 0.80839652 -0.58863831 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652 0 0.80839652
+		 -0.58863831 0 0.80839652 -0.58863831 0 0.80839652 -0.58863831 0 0.58863831 -0.80839652
+		 0 0.80839652 -0.58863831 0 0.80839652 -0.58863831 0 0.58863831 -0.80839652 0 0.80839652
+		 -0.58863831 0 0.80839652 -0.58863831 0 0.9517827 -0.30677295 0 0.80839652 -0.58863831
+		 0 0.80839652 -0.58863831 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295 0 0.9517827
+		 -0.30677295 0 0.80839652 -0.58863831 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295
+		 0 0.80839652 -0.58863831 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295 0 0.99996901
+		 -0.0078737717 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295 0 0.99996901 -0.0078737717
+		 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717 0 0.9517827 -0.30677295 0 0.99996901
+		 -0.0078737717 0 0.99996901 -0.0078737717 0 0.9517827 -0.30677295 0 0.99996901 -0.0078737717
+		 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717
+		 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717
+		 0;
+	setAttr ".n[166:331]" -type "float3"  0.99996901 -0.0078737717 0 0.99996901
+		 -0.0078737717 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717 0 0.99996901
+		 -0.0078737717 0 0.9517827 -0.30677295 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717
+		 0 0.99996901 -0.0078737717 0 0.99996901 -0.0078737717 0 0.9517827 -0.30677295 0 0.99996901
+		 -0.0078737717 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295
+		 0 0.9517827 -0.30677295 0 0.99996901 -0.0078737717 0 0.80839652 -0.58863831 0 0.9517827
+		 -0.30677295 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295 0 0.9517827 -0.30677295
+		 0 0.80839652 -0.58863831 0 0.9517827 -0.30677295 0 0.80839652 -0.58863831 0 0.80839652
+		 -0.58863831 0 0.80839652 -0.58863831 0 0.80839652 -0.58863831 0 0.9517827 -0.30677295
+		 0 0.58863831 -0.80839652 0 0.80839652 -0.58863831 0 0.80839652 -0.58863831 0 0.80839652
+		 -0.58863831 0 0.80839652 -0.58863831 0 0.58863831 -0.80839652 0 0.80839652 -0.58863831
+		 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652 0 0.58863831 -0.80839652 0 0.80839652
+		 -0.58863831 0 0.58863831 -0.80839652 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 -0.70710677
+		 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677
+		 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677
+		 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677
+		 0.015710574 -0.69912058 0.71483117 0 -0.70710677 0.70710677 0.015710574 -0.69912058
+		 0.71483117 0.17277369 -0.6047079 0.77748156 0.2130679 -0.57607251 0.7891404 0.17277369
+		 -0.6047079 0.77748156 0.015710574 -0.69912058 0.71483117 0.17277369 -0.6047079 0.77748156
+		 0.2130679 -0.57607251 0.7891404 0.33933038 -0.47348425 0.81281459 0.34756827 -0.46605745
+		 0.81362569 0.33933038 -0.47348425 0.81281459 0.2130679 -0.57607251 0.7891404 0.33933038
+		 -0.47348425 0.81281459 0.34756827 -0.46605745 0.81362569 0.47348425 -0.33933038 0.81281459
+		 0.47348425 -0.33933038 0.81281459 0.34756827 -0.46605745 0.81362569 0.46605745 -0.34756827
+		 0.81362569 0.57607251 -0.2130679 0.7891404 0.47348425 -0.33933038 0.81281459 0.46605745
+		 -0.34756827 0.81362569 0.47348425 -0.33933038 0.81281459 0.57607251 -0.2130679 0.7891404
+		 0.6047079 -0.17277369 0.77748156 0.70312357 -0.0079002641 0.71102381 0.6047079 -0.17277369
+		 0.77748156 0.57607251 -0.2130679 0.7891404 0.6047079 -0.17277369 0.77748156 0.70312357
+		 -0.0079002641 0.71102381 0.70710677 0 0.70710677 0.70312357 -0.0079002641 0.71102381
+		 0.70710677 0 0.70710677 0.70710677 0 0.70710677 0.70312357 -0.0079002641 0.71102381
+		 0.70710677 0 0.70710677 0.70710677 0 0.70710677 0.6047079 -0.17277369 0.77748156
+		 0.70312357 -0.0079002641 0.71102381 0.70710677 0 0.70710677 0.70312357 -0.0079002641
+		 0.71102381 0.6047079 -0.17277369 0.77748156 0.57607251 -0.2130679 0.7891404 0.47348425
+		 -0.33933038 0.81281459 0.57607251 -0.2130679 0.7891404 0.6047079 -0.17277369 0.77748156
+		 0.57607251 -0.2130679 0.7891404 0.47348425 -0.33933038 0.81281459 0.46605745 -0.34756827
+		 0.81362569 0.33933038 -0.47348425 0.81281459 0.46605745 -0.34756827 0.81362569 0.47348425
+		 -0.33933038 0.81281459 0.46605745 -0.34756827 0.81362569 0.33933038 -0.47348425 0.81281459
+		 0.34756827 -0.46605745 0.81362569 0.34756827 -0.46605745 0.81362569 0.33933038 -0.47348425
+		 0.81281459 0.2130679 -0.57607251 0.7891404 0.2130679 -0.57607251 0.7891404 0.33933038
+		 -0.47348425 0.81281459 0.17277369 -0.6047079 0.77748156 0.2130679 -0.57607251 0.7891404
+		 0.17277369 -0.6047079 0.77748156 0.0079002641 -0.70312357 0.71102381 0 -0.70710677
+		 0.70710677 0.0079002641 -0.70312357 0.71102381 0.17277369 -0.6047079 0.77748156 0
+		 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0.0079002641 -0.70312357 0.71102381
+		 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 0 -0.70710677 0.70710677 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0;
+	setAttr ".n[332:359]" -type "float3"  0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0.30677295
+		 -0.9517827 0 0 -1 0 0.30677295 -0.9517827 0 0 -1 0 0 -1 0 0.30677295 -0.9517827 0
+		 0.30677295 -0.9517827 0 0 -1 0 0 -1 0 0.30677295 -0.9517827 0 0.30677295 -0.9517827
+		 0 0.30677295 -0.9517827 0 0.58863831 -0.80839652 0 0.30677295 -0.9517827 0 0.58863831
+		 -0.80839652 0 0.30677295 -0.9517827 0 0.30677295 -0.9517827 0 0.58863831 -0.80839652
+		 0 0.58863831 -0.80839652 0 0.30677295 -0.9517827 0 0.30677295 -0.9517827 0 0.58863831
+		 -0.80839652 0 0.58863831 -0.80839652 0;
+	setAttr -s 120 -ch 360 ".fc[0:119]" -type "polyFaces" 
+		f 3 0 1 2
+		mu 0 3 0 1 2
+		mu 1 3 0 1 2
+		f 3 3 4 -1
+		mu 0 3 0 3 1
+		mu 1 3 3 4 1
+		f 3 5 6 -4
+		mu 0 3 0 4 3
+		mu 1 3 3 5 4
+		f 3 7 8 9
+		mu 0 3 5 6 4
+		mu 1 3 6 7 5
+		f 3 10 11 -8
+		mu 0 3 5 7 6
+		mu 1 3 6 8 7
+		f 3 -10 12 13
+		mu 0 3 5 4 8
+		mu 1 3 6 5 9
+		f 3 14 -13 -6
+		mu 0 3 0 8 4
+		mu 1 3 3 9 5
+		f 3 15 16 17
+		mu 0 3 9 8 10
+		mu 1 3 10 9 11
+		f 3 18 19 -15
+		mu 0 3 0 11 8
+		mu 1 3 3 12 9
+		f 3 -14 -16 20
+		mu 0 3 5 8 9
+		mu 1 3 13 9 10
+		f 3 -19 21 22
+		mu 0 3 11 0 12
+		mu 1 3 12 3 14
+		f 3 -20 23 24
+		mu 0 3 8 11 13
+		mu 1 3 85 12 15
+		f 3 25 -25 26
+		mu 0 3 14 8 13
+		mu 1 3 86 85 15
+		f 3 27 -22 28
+		mu 0 3 15 12 0
+		mu 1 3 16 14 3
+		f 3 -28 29 30
+		mu 0 3 12 15 16
+		mu 1 3 14 16 17
+		f 3 31 -29 -3
+		mu 0 3 2 15 0
+		mu 1 3 18 16 3
+		f 3 32 33 -32
+		mu 0 3 2 17 15
+		mu 1 3 18 19 16
+		f 3 34 -21 35
+		mu 0 3 18 5 9
+		mu 1 3 20 13 10
+		f 3 -11 -35 36
+		mu 0 3 7 5 18
+		mu 1 3 21 13 20
+		f 3 -36 37 38
+		mu 0 3 18 9 19
+		mu 1 3 20 10 22
+		f 3 39 40 -37
+		mu 0 3 18 20 7
+		mu 1 3 20 23 21
+		f 3 -39 41 42
+		mu 0 3 18 19 21
+		mu 1 3 20 22 24
+		f 3 43 44 -40
+		mu 0 3 18 22 20
+		mu 1 3 20 25 23
+		f 3 -43 45 46
+		mu 0 3 18 21 23
+		mu 1 3 20 24 26
+		f 3 -47 47 -44
+		mu 0 3 18 23 22
+		mu 1 3 20 26 25
+		f 3 48 49 50
+		mu 0 3 24 25 26
+		mu 1 3 27 28 87
+		f 3 -49 51 52
+		mu 0 3 25 24 27
+		mu 1 3 28 27 88
+		f 3 -52 53 54
+		mu 0 3 27 24 28
+		mu 1 3 88 89 29
+		f 3 55 56 57
+		mu 0 3 24 29 30
+		mu 1 3 89 30 90
+		f 3 58 -56 -51
+		mu 0 3 26 29 24
+		mu 1 3 91 30 89
+		f 3 -54 59 60
+		mu 0 3 28 24 31
+		mu 1 3 29 89 31
+		f 3 -58 61 -60
+		mu 0 3 24 30 31
+		mu 1 3 89 92 31
+		f 3 -61 62 63
+		mu 0 3 28 31 32
+		mu 1 3 29 31 32
+		f 3 -62 64 65
+		mu 0 3 31 30 33
+		mu 1 3 31 92 33
+		f 3 -66 66 67
+		mu 0 3 31 33 34
+		mu 1 3 31 33 34
+		f 3 -63 -68 68
+		mu 0 3 32 31 34
+		mu 1 3 32 31 34
+		f 3 -67 69 70
+		mu 0 3 34 33 35
+		mu 1 3 34 33 35
+		f 3 71 -69 72
+		mu 0 3 36 32 34
+		mu 1 3 36 32 34
+		f 3 -71 73 -73
+		mu 0 3 34 35 36
+		mu 1 3 34 35 36
+		f 3 -72 74 75
+		mu 0 3 32 36 37
+		mu 1 3 32 36 37
+		f 3 -74 76 77
+		mu 0 3 36 35 38
+		mu 1 3 36 35 38
+		f 3 -75 78 79
+		mu 0 3 37 36 39
+		mu 1 3 37 36 39
+		f 3 -78 80 81
+		mu 0 3 36 38 40
+		mu 1 3 36 38 40
+		f 3 82 -79 -82
+		mu 0 3 40 39 36
+		mu 1 3 40 39 36
+		f 3 83 -81 84
+		mu 0 3 41 40 38
+		mu 1 3 41 40 38
+		f 3 -83 85 86
+		mu 0 3 39 40 42
+		mu 1 3 39 40 42
+		f 3 -84 87 88
+		mu 0 3 40 41 43
+		mu 1 3 40 41 93
+		f 3 89 -86 -89
+		mu 0 3 43 42 40
+		mu 1 3 93 42 40
+		f 3 90 -88 91
+		mu 0 3 44 43 41
+		mu 1 3 43 93 41
+		f 3 -90 92 93
+		mu 0 3 42 43 45
+		mu 1 3 42 93 44
+		f 3 -91 94 95
+		mu 0 3 43 44 46
+		mu 1 3 93 43 94
+		f 3 96 -93 -96
+		mu 0 3 46 45 43
+		mu 1 3 94 44 93
+		f 3 97 -95 98
+		mu 0 3 47 46 44
+		mu 1 3 45 94 43
+		f 3 -97 99 100
+		mu 0 3 45 46 48
+		mu 1 3 44 94 95
+		f 3 101 -100 -98
+		mu 0 3 47 48 46
+		mu 1 3 45 95 94
+		f 3 -101 102 103
+		mu 0 3 45 48 49
+		mu 1 3 44 95 96
+		f 3 -102 104 105
+		mu 0 3 48 47 50
+		mu 1 3 95 45 97
+		f 3 106 -103 107
+		mu 0 3 51 49 48
+		mu 1 3 46 96 95
+		f 3 -106 108 -108
+		mu 0 3 48 50 51
+		mu 1 3 95 97 46
+		f 3 -107 109 110
+		mu 0 3 49 51 52
+		mu 1 3 96 46 47
+		f 3 111 -109 112
+		mu 0 3 53 51 50
+		mu 1 3 48 46 97
+		f 3 113 -110 114
+		mu 0 3 54 52 51
+		mu 1 3 49 47 46
+		f 3 -112 115 -115
+		mu 0 3 51 53 54
+		mu 1 3 46 48 49
+		f 3 -114 116 117
+		mu 0 3 52 54 55
+		mu 1 3 47 49 50
+		f 3 118 -116 119
+		mu 0 3 56 54 53
+		mu 1 3 51 49 48
+		f 3 120 -117 121
+		mu 0 3 57 55 54
+		mu 1 3 52 50 49
+		f 3 -119 122 -122
+		mu 0 3 54 56 57
+		mu 1 3 49 51 52
+		f 3 -121 123 124
+		mu 0 3 55 57 58
+		mu 1 3 50 52 53
+		f 3 -123 125 126
+		mu 0 3 57 56 59
+		mu 1 3 52 51 54
+		f 3 127 -26 128
+		mu 0 3 60 8 14
+		mu 1 3 98 55 56
+		f 3 -128 129 -17
+		mu 0 3 8 60 10
+		mu 1 3 55 98 99
+		f 3 -53 130 131
+		mu 0 3 25 27 61
+		mu 1 3 57 100 101
+		f 3 -130 -131 132
+		mu 0 3 62 61 27
+		mu 1 3 11 101 100
+		f 3 133 -18 -133
+		mu 0 3 27 63 62
+		mu 1 3 102 10 11
+		f 3 -134 -55 134
+		mu 0 3 63 27 28
+		mu 1 3 10 102 58
+		f 3 -135 135 -38
+		mu 0 3 63 28 64
+		mu 1 3 10 58 22
+		f 3 136 -136 -64
+		mu 0 3 32 64 28
+		mu 1 3 59 22 58
+		f 3 -137 137 -42
+		mu 0 3 64 32 65
+		mu 1 3 22 59 24
+		f 3 138 -138 -76
+		mu 0 3 37 65 32
+		mu 1 3 60 24 59
+		f 3 -139 139 -46
+		mu 0 3 65 37 66
+		mu 1 3 24 60 26
+		f 3 -140 -80 140
+		mu 0 3 66 37 39
+		mu 1 3 26 60 61
+		f 3 141 -141 -87
+		mu 0 3 42 66 39
+		mu 1 3 62 26 61
+		f 3 -142 142 -48
+		mu 0 3 66 42 67
+		mu 1 3 26 62 25
+		f 3 143 -143 -94
+		mu 0 3 45 67 42
+		mu 1 3 63 25 62
+		f 3 -144 144 -45
+		mu 0 3 67 45 68
+		mu 1 3 25 63 23
+		f 3 -104 145 -145
+		mu 0 3 45 49 68
+		mu 1 3 63 64 23
+		f 3 -41 -146 146
+		mu 0 3 69 68 49
+		mu 1 3 21 23 64
+		f 3 147 -147 -111
+		mu 0 3 52 69 49
+		mu 1 3 65 21 64
+		f 3 -148 148 -12
+		mu 0 3 69 52 70
+		mu 1 3 21 65 66
+		f 3 149 -149 -118
+		mu 0 3 55 70 52
+		mu 1 3 67 66 65
+		f 3 -150 150 -9
+		mu 0 3 70 55 71
+		mu 1 3 66 67 68
+		f 3 151 -151 -125
+		mu 0 3 58 71 55
+		mu 1 3 69 68 67
+		f 3 -152 152 -7
+		mu 0 3 71 58 72
+		mu 1 3 68 69 70
+		f 3 -153 153 -5
+		mu 0 3 73 74 75
+		mu 1 3 4 53 1
+		f 3 -154 154 155
+		mu 0 3 75 74 76
+		mu 1 3 1 53 71
+		f 3 -156 156 -2
+		mu 0 3 75 76 77
+		mu 1 3 1 71 2
+		f 3 157 -157 158
+		mu 0 3 78 77 76
+		mu 1 3 72 2 71
+		f 3 159 -33 -158
+		mu 0 3 78 79 77
+		mu 1 3 72 19 2
+		f 3 -160 160 161
+		mu 0 3 79 78 80
+		mu 1 3 19 72 73
+		f 3 162 -34 -162
+		mu 0 3 80 81 82
+		mu 1 3 73 16 19
+		f 3 -163 163 164
+		mu 0 3 81 80 83
+		mu 1 3 16 73 74
+		f 3 -165 165 -30
+		mu 0 3 81 83 84
+		mu 1 3 16 74 75
+		f 3 166 167 -164
+		mu 0 3 80 85 83
+		mu 1 3 73 76 74
+		f 3 168 -166 169
+		mu 0 3 86 84 83
+		mu 1 3 77 75 74
+		f 3 170 171 -168
+		mu 0 3 85 87 83
+		mu 1 3 76 78 74
+		f 3 -172 172 -170
+		mu 0 3 83 87 86
+		mu 1 3 74 78 77
+		f 3 173 174 -171
+		mu 0 3 85 88 87
+		mu 1 3 76 79 78
+		f 3 175 -173 176
+		mu 0 3 89 86 87
+		mu 1 3 80 77 78
+		f 3 177 178 -174
+		mu 0 3 85 90 88
+		mu 1 3 76 81 79
+		f 3 179 -167 -161
+		mu 0 3 78 85 80
+		mu 1 3 72 76 73
+		f 3 -178 180 181
+		mu 0 3 90 85 91
+		mu 1 3 81 76 82
+		f 3 -180 182 -181
+		mu 0 3 85 78 91
+		mu 1 3 76 72 82
+		f 3 183 184 -182
+		mu 0 3 91 92 90
+		mu 1 3 82 83 81
+		f 3 185 -183 -159
+		mu 0 3 76 91 78
+		mu 1 3 71 82 72
+		f 3 186 -184 187
+		mu 0 3 93 92 91
+		mu 1 3 84 83 82
+		f 3 -186 188 -188
+		mu 0 3 91 76 93
+		mu 1 3 82 71 84
+		f 3 189 190 -187
+		mu 0 3 93 94 92
+		mu 1 3 84 54 83
+		f 3 191 -189 -155
+		mu 0 3 74 93 76
+		mu 1 3 53 84 71
+		f 3 -127 -190 192
+		mu 0 3 95 94 93
+		mu 1 3 52 54 84
+		f 3 -192 -124 -193
+		mu 0 3 93 74 95
+		mu 1 3 84 53 52;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr -s 2 ".pd";
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "Concrete_FloorCorner1" -p "Bp_Layout";
+	rename -uid "3ECE24EF-4817-3B6C-D6A9-3CB8DDAD001D";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 48.807693481445312 -769.454345703125 236.88992309570312 ;
+	setAttr ".r" -type "double3" 0 0 -179.99999860565387 ;
+	setAttr ".s" -type "double3" 1.3813529014587402 1.3813529014587402 1 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BouncePannel" -p "Bp_Layout";
+	rename -uid "4FC8B4A0-4A17-C22B-036F-B98A44A87558";
+	setAttr ".t" -type "double3" 598.33868408203125 588.87554931640625 906.13800048828125 ;
+	setAttr ".r" -type "double3" -11.804436232628518 -1.9878466759146981e-14 -89.999999302823568 ;
+createNode transform -n "BP_BouncePannel12" -p "Bp_Layout";
+	rename -uid "376911D9-4BB8-E253-EE63-189AFFECF2C6";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 598.33868408203125 588.87554931640625 906.13800048828125 ;
+	setAttr ".r" -type "double3" 33.19556341878495 -2.2263882770244617e-14 -89.999999302823511 ;
+	setAttr ".s" -type "double3" 6.8660364904208109 0.13005241786595434 3.4097704410087317 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BouncePannel1" -p "Bp_Layout";
+	rename -uid "B19BE5FA-4213-68A8-4AE1-AFADC1ECC60E";
+	setAttr ".t" -type "double3" -287.99374389648438 1088.3349609375 1003.5825805664062 ;
+	setAttr ".r" -type "double3" -22.05578892063096 0 0 ;
+createNode transform -n "BP_BouncePannel13" -p "Bp_Layout";
+	rename -uid "BC876F16-4AC0-6082-AF02-2BBB72FBF035";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" -287.99374389648438 1088.3349609375 1003.5825805664062 ;
+	setAttr ".r" -type "double3" 22.944210730782519 0 0 ;
+	setAttr ".s" -type "double3" 6.8660364904208109 0.13005241786595434 3.4097704410087317 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BouncePannel2" -p "Bp_Layout";
+	rename -uid "3A0FD4A4-4CEB-2AF5-9DDC-A2A4502DA345";
+	setAttr ".t" -type "double3" 397.67684936523438 -879.81231689453125 1210.4315185546875 ;
+	setAttr ".r" -type "double3" -9.4824147886125143 -5.4824811321727367e-13 -130.79979073205988 ;
+createNode transform -n "BP_BouncePannel14" -p "Bp_Layout";
+	rename -uid "A5716A0E-4A04-900F-39CF-B5874563AB99";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 397.67684936523438 -879.81231689453125 1210.4315185546875 ;
+	setAttr ".r" -type "double3" 35.517584862800916 -5.5023595989318844e-13 -130.79979073205979 ;
+	setAttr ".s" -type "double3" 6.8660364904208109 0.13005241786595434 3.4097704410087317 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "Cube" -p "Bp_Layout";
+	rename -uid "E185F42B-491D-5C10-0731-289D0D3DB6CB";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" -140.20893859863281 263.5311279296875 274.41659545898438 ;
+	setAttr ".s" -type "double3" 0.28256420465186238 4.4859127333620563 2.9283246626146138 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "Concrete_FloorCorner3" -p "Bp_Layout";
+	rename -uid "0602DB4D-423B-8E6C-EF8D-8EBA5DC8F64C";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 23.338832855224609 487.32394409179688 -14.255949020385742 ;
+	setAttr ".r" -type "double3" 0 0 -89.999999302826822 ;
+	setAttr ".s" -type "double3" 1.3813529014587402 1.9309787322563352 1 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BouncePannel3" -p "Bp_Layout";
+	rename -uid "5EB0C15A-42A8-7DEB-7B09-8A9DBF19770A";
+	setAttr ".t" -type "double3" 321.197265625 959.72808837890625 1272.9521484375 ;
+	setAttr ".r" -type "double3" 9.1868325991803754 0.83302730155782001 -36.341549271521714 ;
+	setAttr ".s" -type "double3" 0.50382585357874632 1 1 ;
+createNode transform -n "BP_BouncePannel0" -p "Bp_Layout";
+	rename -uid "7104FF6E-47D6-E212-7F6F-C9B588CDD15A";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 321.197265625 959.72808837890625 1272.9521484375 ;
+	setAttr ".r" -type "double3" 54.186832250593902 0.83302730155782556 -36.34154927152175 ;
+	setAttr ".s" -type "double3" 3.4592866954890846 0.13005241786595434 3.4097704410087317 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode mesh -n "polySurfaceShape2" -p "BP_BouncePannel0";
+	rename -uid "40B68EC9-440A-DE59-7900-53B65C569999";
+	setAttr -k off ".v";
+	setAttr ".io" yes;
+	setAttr -s 11 ".iog";
+	setAttr ".iog[0].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[1].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[2].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[3].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[4].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[5].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[6].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[7].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[8].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[9].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".iog[10].og[0].gcl" -type "componentList" 1 "f[0:47]";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 2 ".uvst";
+	setAttr ".uvst[0].uvsn" -type "string" "UVmap_0";
+	setAttr -s 48 ".uvst[0].uvsp[0:47]" -type "float2" 0 0 0.5 0 0 0.5 0.5
+		 0.5 1 0 0 1 1 0.5 0.5 1 1 1 1 0.5 0.5 0 1 0 0.5 0.5 1 1 0 0 0.5 1 0 0.5 0 1 1 0.5
+		 1 0 0.5 0.5 1 1 0 0 0.5 1 0 0.5 0 1 1 0.5 0.5 0 1 0 0.5 0.5 0.5 1 0 0.5 0 1 1 0.5
+		 0.5 0 1 0 0.5 0.5 1 1 0 0 0 0.5 0 1 1 0.5 0.5 0 0.5 0.5 1 1 0 0 0.5 1 0 0.5;
+	setAttr ".uvst[1].uvsn" -type "string" "LightMapUV";
+	setAttr -s 54 ".uvst[1].uvsp[0:53]" -type "float2" 0.35961914 0.99520874
+		 0.35961914 0.8548584 0.49975586 0.99520874 0.49975586 0.8548584 0.35961914 0.71459961
+		 0.64013672 0.99520874 0.49975586 0.71459961 0.64013672 0.8548584 0.64013672 0.71459961
+		 0.49975586 0.0048828125 0.35961914 0.14550781 0.35961914 0.0048828125 0.49975586
+		 0.14550781 0.64013672 0.0048828125 0.35961914 0.28564453 0.64013672 0.14550781 0.49975586
+		 0.28564453 0.64013672 0.28564453 0.49975586 0.35986328 0.35961914 0.50024414 0.35961914
+		 0.35986328 0.49975586 0.50024414 0.64013672 0.35986328 0.35961914 0.64038086 0.64013672
+		 0.50024414 0.49975586 0.64038086 0.64013672 0.64038086 0.1451416 0.35986328 0.0047912598
+		 0.50024414 0.0047912598 0.35986328 0.1451416 0.50024414 0.28540039 0.35986328 0.0047912598
+		 0.64038086 0.28540039 0.50024414 0.1451416 0.64038086 0.28540039 0.64038086 0.28540039
+		 0.14550781 0.1451416 0.0048828125 0.28540039 0.0048828125 0.1451416 0.14550781 0.28540039
+		 0.28564453 0.0047912598 0.0048828125 0.1451416 0.28564453 0.0047912598 0.14550781
+		 0.0047912598 0.28564453 0.1451416 0.71459961 0.0047912598 0.8548584 0.0047912598
+		 0.71459961 0.1451416 0.8548584 0.28540039 0.71459961 0.0047912598 0.99520874 0.28540039
+		 0.8548584 0.1451416 0.99520874 0.28540039 0.99520874;
+	setAttr ".cuvs" -type "string" "UVmap_0";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr -s 26 ".vt[0:25]"  50 -50 -50 0 -50 -50 50 0 -50 0 0 -50 -50 -50 -50
+		 50 50 -50 -50 0 -50 0 50 -50 -50 50 -50 50 -1.2246468e-14 50 0 -50 50 50 -50 50 0 -1.2246468e-14 50
+		 50 50 50 -50 -50 50 0 50 50 -50 -1.2246468e-14 50 -50 50 50 50 -50 -3.0616169e-15
+		 0 -50 -3.0616169e-15 -50 -50 -3.0616169e-15 50 50 3.0616169e-15 50 -6.1232338e-15 -1.8746997e-31
+		 -50 50 3.0616169e-15 0 50 3.0616169e-15 -50 -6.1232338e-15 -1.8746997e-31;
+	setAttr -s 72 ".ed[0:71]"  0 1 0 1 2 0 2 0 0 1 3 0 3 2 0 1 4 0 4 3 0
+		 3 5 0 5 2 0 4 6 0 6 3 0 3 7 0 7 5 0 6 7 0 6 8 0 8 7 0 9 10 0 10 11 0 11 9 0 9 12 0
+		 12 10 0 13 12 0 9 13 0 12 14 0 14 10 0 13 15 0 15 12 0 12 16 0 16 14 0 15 16 0 15 17 0
+		 17 16 0 18 1 0 0 18 0 18 19 0 19 1 0 11 19 0 18 11 0 19 4 0 10 19 0 19 20 0 20 4 0
+		 10 20 0 14 20 0 21 2 0 5 21 0 21 22 0 22 2 0 13 22 0 21 13 0 22 0 0 9 22 0 22 18 0
+		 9 18 0 23 7 0 8 23 0 23 24 0 24 7 0 17 24 0 23 17 0 24 5 0 15 24 0 24 21 0 15 21 0
+		 20 6 0 20 25 0 25 6 0 14 25 0 25 8 0 16 25 0 25 23 0 16 23 0;
+	setAttr -s 144 ".n[0:143]" -type "float3"  0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0
+		 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1
+		 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 0 1 0 0 1 0 0 1 0 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1
+		 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0 1 0 0
+		 1 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0
+		 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0 0 -1 0
+		 0 -1 0 0;
+	setAttr -s 48 -ch 144 ".fc[0:47]" -type "polyFaces" 
+		f 3 0 1 2
+		mu 0 3 0 1 2
+		mu 1 3 0 1 2
+		f 3 3 4 -2
+		mu 0 3 1 3 2
+		mu 1 3 1 3 2
+		f 3 5 6 -4
+		mu 0 3 1 4 3
+		mu 1 3 1 4 3
+		f 3 -5 7 8
+		mu 0 3 2 3 5
+		mu 1 3 2 3 5
+		f 3 9 10 -7
+		mu 0 3 4 6 3
+		mu 1 3 4 6 3
+		f 3 11 12 -8
+		mu 0 3 3 7 5
+		mu 1 3 3 7 5
+		f 3 -11 13 -12
+		mu 0 3 3 6 7
+		mu 1 3 3 6 7
+		f 3 14 15 -14
+		mu 0 3 6 8 7
+		mu 1 3 6 8 7
+		f 3 16 17 18
+		mu 0 3 9 10 11
+		mu 1 3 9 10 11
+		f 3 19 20 -17
+		mu 0 3 9 12 10
+		mu 1 3 9 12 10
+		f 3 21 -20 22
+		mu 0 3 13 12 9
+		mu 1 3 13 12 9
+		f 3 23 24 -21
+		mu 0 3 12 14 10
+		mu 1 3 12 14 10
+		f 3 25 26 -22
+		mu 0 3 13 15 12
+		mu 1 3 13 15 12
+		f 3 27 28 -24
+		mu 0 3 12 16 14
+		mu 1 3 12 16 14
+		f 3 29 -28 -27
+		mu 0 3 15 16 12
+		mu 1 3 15 16 12
+		f 3 30 31 -30
+		mu 0 3 15 17 16
+		mu 1 3 15 17 16
+		f 3 32 -1 33
+		mu 0 3 18 1 19
+		mu 1 3 18 19 20
+		f 3 34 35 -33
+		mu 0 3 18 20 1
+		mu 1 3 18 21 19
+		f 3 36 -35 37
+		mu 0 3 21 20 18
+		mu 1 3 22 21 18
+		f 3 38 -6 -36
+		mu 0 3 20 22 1
+		mu 1 3 21 23 19
+		f 3 -18 39 -37
+		mu 0 3 21 23 20
+		mu 1 3 22 24 21
+		f 3 40 41 -39
+		mu 0 3 20 24 22
+		mu 1 3 21 25 23
+		f 3 42 -41 -40
+		mu 0 3 23 24 20
+		mu 1 3 24 25 21
+		f 3 -25 43 -43
+		mu 0 3 23 25 24
+		mu 1 3 24 26 25
+		f 3 44 -9 45
+		mu 0 3 26 27 28
+		mu 1 3 27 28 29
+		f 3 46 47 -45
+		mu 0 3 26 29 27
+		mu 1 3 27 30 28
+		f 3 48 -47 49
+		mu 0 3 13 29 26
+		mu 1 3 31 30 27
+		f 3 50 -3 -48
+		mu 0 3 29 0 27
+		mu 1 3 30 32 28
+		f 3 -23 51 -49
+		mu 0 3 13 30 29
+		mu 1 3 31 33 30
+		f 3 52 -34 -51
+		mu 0 3 29 31 0
+		mu 1 3 30 34 32
+		f 3 53 -53 -52
+		mu 0 3 30 31 29
+		mu 1 3 33 34 30
+		f 3 -19 -38 -54
+		mu 0 3 30 32 31
+		mu 1 3 33 35 34
+		f 3 54 -16 55
+		mu 0 3 33 34 35
+		mu 1 3 36 37 38
+		f 3 56 57 -55
+		mu 0 3 33 36 34
+		mu 1 3 36 39 37
+		f 3 58 -57 59
+		mu 0 3 37 36 33
+		mu 1 3 40 39 36
+		f 3 60 -13 -58
+		mu 0 3 36 38 34
+		mu 1 3 39 41 37
+		f 3 -31 61 -59
+		mu 0 3 37 15 36
+		mu 1 3 40 42 39
+		f 3 62 -46 -61
+		mu 0 3 36 39 38
+		mu 1 3 39 43 41
+		f 3 63 -63 -62
+		mu 0 3 15 39 36
+		mu 1 3 42 43 39
+		f 3 -26 -50 -64
+		mu 0 3 15 40 39
+		mu 1 3 42 44 43
+		f 3 64 -10 -42
+		mu 0 3 41 42 4
+		mu 1 3 45 46 47
+		f 3 65 66 -65
+		mu 0 3 41 43 42
+		mu 1 3 45 48 46
+		f 3 67 -66 -44
+		mu 0 3 44 43 41
+		mu 1 3 49 48 45
+		f 3 68 -15 -67
+		mu 0 3 43 45 42
+		mu 1 3 48 50 46
+		f 3 -29 69 -68
+		mu 0 3 44 46 43
+		mu 1 3 49 51 48
+		f 3 70 -56 -69
+		mu 0 3 43 47 45
+		mu 1 3 48 52 50
+		f 3 71 -71 -70
+		mu 0 3 46 47 43
+		mu 1 3 51 52 48
+		f 3 -32 -60 -72
+		mu 0 3 46 17 47
+		mu 1 3 51 53 52;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr -s 2 ".pd";
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".pd[1]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "BP_BouncePannel4" -p "Bp_Layout";
+	rename -uid "D18296CC-471D-992F-959D-7B94752380B9";
+	setAttr ".t" -type "double3" 642.12945556640625 134.94825744628906 537.34588623046875 ;
+	setAttr ".r" -type "double3" -38.75385898072166 -5.0419867129532975e-08 -89.999999304648341 ;
+	setAttr ".s" -type "double3" 0.50382585357874632 1 1 ;
+createNode transform -n "BP_BouncePannel1_ncl1_1" -p "Bp_Layout";
+	rename -uid "59972A7F-4124-A76B-285D-17AD0A49946B";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 642.12945556640625 134.94825744628906 537.34588623046875 ;
+	setAttr ".r" -type "double3" 6.2461406706918323 -5.041986275627029e-08 -89.999999304648327 ;
+	setAttr ".s" -type "double3" 3.4592866954890846 0.13005241786595434 3.4097704410087317 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BouncePannel5" -p "Bp_Layout";
+	rename -uid "7762639C-4BFF-F379-D6E7-ADB6CF025163";
+	setAttr ".t" -type "double3" -715.418701171875 932.1064453125 1209.0172119140625 ;
+	setAttr ".r" -type "double3" 58.399184083230672 58.973246727019806 161.72467515141335 ;
+	setAttr ".s" -type "double3" 0.50382585357874632 1 1 ;
+createNode transform -n "BP_BouncePannel2_ncl1_1" -p "Bp_Layout";
+	rename -uid "A0B3C0D2-48B1-02C2-0F4B-FD8725941DD0";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" -715.418701171875 932.1064453125 1209.0172119140625 ;
+	setAttr ".r" -type "double3" 103.39918373464397 58.973246727019642 161.72467515141329 ;
+	setAttr ".s" -type "double3" 3.4592866954890846 0.13005241786595434 3.4097704410087317 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "Concrete_FloorCorner4" -p "Bp_Layout";
+	rename -uid "50681E77-4439-5A4C-95E6-72AA766DC0CD";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 286.5589599609375 843.43310546875 351.95440673828125 ;
+	setAttr ".r" -type "double3" 0 0 -89.999999302826964 ;
+	setAttr ".s" -type "double3" 0.75 1 1 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "e" -p "Bp_Layout";
+	rename -uid "F5715807-4120-45D3-4BAE-3593F0829025";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" 417.2078857421875 461.6793212890625 238.10775756835938 ;
+	setAttr ".r" -type "double3" 0 0 -179.9999986056539 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "BP_BouncePannel6" -p "Bp_Layout";
+	rename -uid "62FBC650-4817-58FB-0AD2-008E8AA9715B";
+	setAttr ".t" -type "double3" -477.10345458984375 1144.1468505859375 332.83071899414062 ;
+	setAttr ".r" -type "double3" -45.178994437178176 0 0 ;
+	setAttr ".s" -type "double3" 0.50382585357874632 1 0.75 ;
+createNode transform -n "BP_BouncePannel3_ncl1_1" -p "Bp_Layout";
+	rename -uid "55FEDC9B-4E55-3F79-B1AE-A6ABAA162887";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" -477.10345458984375 1144.1468505859375 332.83071899414062 ;
+	setAttr ".r" -type "double3" -0.17899478576468753 0 0 ;
+	setAttr ".s" -type "double3" 3.4592866954890846 0.13005241786595434 2.5573278307565488 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+createNode transform -n "Concrete_FloorCorner5" -p "Bp_Layout";
+	rename -uid "F20EA3FD-47D1-4B8A-66CE-A08C63F61D60";
+	addAttr -is true -ci true -k true -sn "QuaternionInterpolate" -ln "QuaternionInterpolate" 
+		-min 0 -max 4 -en "OFF:Classic:Auto:Slerp:Squad" -at "enum";
+	addAttr -is true -ci true -k true -sn "RotationOffset" -ln "RotationOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationOffset0" -ln "RotationOffset0" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset1" -ln "RotationOffset1" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -sn "RotationOffset2" -ln "RotationOffset2" -at "double" 
+		-p "RotationOffset";
+	addAttr -is true -ci true -k true -sn "RotationPivot" -ln "RotationPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationPivot0" -ln "RotationPivot0" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot1" -ln "RotationPivot1" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -sn "RotationPivot2" -ln "RotationPivot2" -at "double" 
+		-p "RotationPivot";
+	addAttr -is true -ci true -k true -sn "ScalingOffset" -ln "ScalingOffset" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingOffset0" -ln "ScalingOffset0" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset1" -ln "ScalingOffset1" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -sn "ScalingOffset2" -ln "ScalingOffset2" -at "double" 
+		-p "ScalingOffset";
+	addAttr -is true -ci true -k true -sn "ScalingPivot" -ln "ScalingPivot" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingPivot0" -ln "ScalingPivot0" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot1" -ln "ScalingPivot1" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -sn "ScalingPivot2" -ln "ScalingPivot2" -at "double" -p "ScalingPivot";
+	addAttr -is true -ci true -k true -sn "TranslationActive" -ln "TranslationActive" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMin" -ln "TranslationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMin0" -ln "TranslationMin0" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin1" -ln "TranslationMin1" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -sn "TranslationMin2" -ln "TranslationMin2" -at "double" 
+		-p "TranslationMin";
+	addAttr -is true -ci true -k true -sn "TranslationMax" -ln "TranslationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "TranslationMax0" -ln "TranslationMax0" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax1" -ln "TranslationMax1" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -sn "TranslationMax2" -ln "TranslationMax2" -at "double" 
+		-p "TranslationMax";
+	addAttr -is true -ci true -k true -sn "TranslationMinX" -ln "TranslationMinX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinY" -ln "TranslationMinY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMinZ" -ln "TranslationMinZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxX" -ln "TranslationMaxX" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxY" -ln "TranslationMaxY" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "TranslationMaxZ" -ln "TranslationMaxZ" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationOrder" -ln "RotationOrder" -min 0 
+		-max 6 -en "Euler XYZ:Euler XZY:Euler YZX:Euler YXZ:Euler ZXY:Euler ZYX:Spheric XYZ" 
+		-at "enum";
+	addAttr -is true -ci true -k true -sn "RotationSpaceForLimitOnly" -ln "RotationSpaceForLimitOnly" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessX" -ln "RotationStiffnessX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessY" -ln "RotationStiffnessY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "RotationStiffnessZ" -ln "RotationStiffnessZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "AxisLen" -ln "AxisLen" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreRotation" -ln "PreRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PreRotation0" -ln "PreRotation0" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation1" -ln "PreRotation1" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -sn "PreRotation2" -ln "PreRotation2" -at "double" -p "PreRotation";
+	addAttr -is true -ci true -k true -sn "PostRotation" -ln "PostRotation" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "PostRotation0" -ln "PostRotation0" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation1" -ln "PostRotation1" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -sn "PostRotation2" -ln "PostRotation2" -at "double" -p "PostRotation";
+	addAttr -is true -ci true -k true -sn "RotationActive" -ln "RotationActive" -min 
+		0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMin" -ln "RotationMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMin0" -ln "RotationMin0" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin1" -ln "RotationMin1" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -sn "RotationMin2" -ln "RotationMin2" -at "double" -p "RotationMin";
+	addAttr -is true -ci true -k true -sn "RotationMax" -ln "RotationMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "RotationMax0" -ln "RotationMax0" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax1" -ln "RotationMax1" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -sn "RotationMax2" -ln "RotationMax2" -at "double" -p "RotationMax";
+	addAttr -is true -ci true -k true -sn "RotationMinX" -ln "RotationMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinY" -ln "RotationMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMinZ" -ln "RotationMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxX" -ln "RotationMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxY" -ln "RotationMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "RotationMaxZ" -ln "RotationMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "InheritType" -ln "InheritType" -min 0 -max 
+		2 -en "RrSs:RSrs:Rrs" -at "enum";
+	addAttr -is true -ci true -k true -sn "ScalingActive" -ln "ScalingActive" -min 0 
+		-max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMin" -ln "ScalingMin" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMin0" -ln "ScalingMin0" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin1" -ln "ScalingMin1" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -sn "ScalingMin2" -ln "ScalingMin2" -at "double" -p "ScalingMin";
+	addAttr -is true -ci true -k true -sn "ScalingMax" -ln "ScalingMax" -at "double3" 
+		-nc 3;
+	addAttr -is true -ci true -sn "ScalingMax0" -ln "ScalingMax0" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax1" -ln "ScalingMax1" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -sn "ScalingMax2" -ln "ScalingMax2" -at "double" -p "ScalingMax";
+	addAttr -is true -ci true -k true -sn "ScalingMinX" -ln "ScalingMinX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinY" -ln "ScalingMinY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMinZ" -ln "ScalingMinZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxX" -ln "ScalingMaxX" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxY" -ln "ScalingMaxY" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ScalingMaxZ" -ln "ScalingMaxZ" -min 0 -max 
+		1 -at "bool";
+	addAttr -is true -ci true -k true -sn "GeometricTranslation" -ln "GeometricTranslation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricTranslation0" -ln "GeometricTranslation0" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation1" -ln "GeometricTranslation1" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -sn "GeometricTranslation2" -ln "GeometricTranslation2" 
+		-at "double" -p "GeometricTranslation";
+	addAttr -is true -ci true -k true -sn "GeometricRotation" -ln "GeometricRotation" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricRotation0" -ln "GeometricRotation0" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation1" -ln "GeometricRotation1" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -sn "GeometricRotation2" -ln "GeometricRotation2" -at "double" 
+		-p "GeometricRotation";
+	addAttr -is true -ci true -k true -sn "GeometricScaling" -ln "GeometricScaling" 
+		-at "double3" -nc 3;
+	addAttr -is true -ci true -sn "GeometricScaling0" -ln "GeometricScaling0" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling1" -ln "GeometricScaling1" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -sn "GeometricScaling2" -ln "GeometricScaling2" -at "double" 
+		-p "GeometricScaling";
+	addAttr -is true -ci true -k true -sn "MinDampRangeX" -ln "MinDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeY" -ln "MinDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampRangeZ" -ln "MinDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeX" -ln "MaxDampRangeX" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeY" -ln "MaxDampRangeY" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampRangeZ" -ln "MaxDampRangeZ" -smn 2.3850899339694432e-312 
+		-smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthX" -ln "MinDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthY" -ln "MinDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MinDampStrengthZ" -ln "MinDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthX" -ln "MaxDampStrengthX" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthY" -ln "MaxDampStrengthY" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "MaxDampStrengthZ" -ln "MaxDampStrengthZ" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleX" -ln "PreferedAngleX" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleY" -ln "PreferedAngleY" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "PreferedAngleZ" -ln "PreferedAngleZ" -smn 
+		2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "double";
+	addAttr -is true -ci true -k true -sn "Show" -ln "Show" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "NegativePercentShapeSupport" -ln "NegativePercentShapeSupport" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "DefaultAttributeIndex" -ln "DefaultAttributeIndex" 
+		-smn 2.3850899339694432e-312 -smx 8.3991159793011913e-323 -at "long";
+	addAttr -is true -ci true -k true -sn "Freeze" -ln "Freeze" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "LODBox" -ln "LODBox" -min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -uac -k true -sn "Color" -ln "Color" -at "float3" -nc 
+		3;
+	addAttr -is true -ci true -sn "Colorr" -ln "ColorR" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorg" -ln "ColorG" -at "float" -p "Color";
+	addAttr -is true -ci true -sn "Colorb" -ln "ColorB" -at "float" -p "Color";
+	addAttr -is true -ci true -k true -sn "BBoxMin" -ln "BBoxMin" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMin0" -ln "BBoxMin0" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin1" -ln "BBoxMin1" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -sn "BBoxMin2" -ln "BBoxMin2" -at "double" -p "BBoxMin";
+	addAttr -is true -ci true -k true -sn "BBoxMax" -ln "BBoxMax" -at "double3" -nc 
+		3;
+	addAttr -is true -ci true -sn "BBoxMax0" -ln "BBoxMax0" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax1" -ln "BBoxMax1" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -sn "BBoxMax2" -ln "BBoxMax2" -at "double" -p "BBoxMax";
+	addAttr -is true -ci true -k true -sn "PrimaryFBXASC032Visibility" -ln "PrimaryFBXASC032Visibility" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "CastsFBXASC032Shadows" -ln "CastsFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	addAttr -is true -ci true -k true -sn "ReceiveFBXASC032Shadows" -ln "ReceiveFBXASC032Shadows" 
+		-min 0 -max 1 -at "bool";
+	setAttr ".t" -type "double3" -576.6278076171875 -1252.9405517578125 45.531368255615234 ;
+	setAttr ".r" -type "double3" 0 0 -179.99999860565381 ;
+	setAttr ".s" -type "double3" 1.3813529014587402 1.9309787322563352 1 ;
+	setAttr -k on ".AxisLen" 10;
+	setAttr -k on ".GeometricScaling" -type "double3" 1 1 1 ;
+	setAttr -k on ".Show" yes;
+	setAttr -k on ".NegativePercentShapeSupport" yes;
+	setAttr -k on ".Color" -type "float3" 0.80000001 0.80000001 0.80000001 ;
+	setAttr -k on ".PrimaryFBXASC032Visibility" yes;
+	setAttr -k on ".CastsFBXASC032Shadows" yes;
+	setAttr -k on ".ReceiveFBXASC032Shadows" yes;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "Wall1" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "Wall2" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel12" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel13" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel14" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "Cube" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel0" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel1_ncl1_1" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel2_ncl1_1" ;
+parent -s -nc -r -add "|Bp_Layout|Wall|WallShape" "BP_BouncePannel3_ncl1_1" ;
+parent -s -nc -r -add "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape" "Concrete_FloorCorner1" ;
+parent -s -nc -r -add "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape" "Concrete_FloorCorner3" ;
+parent -s -nc -r -add "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape" "Concrete_FloorCorner4" ;
+parent -s -nc -r -add "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape" "e" ;
+parent -s -nc -r -add "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape" "Concrete_FloorCorner5" ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "646E6147-40E3-E578-96CF-D38ED284BB50";
-	setAttr -s 8 ".lnk";
-	setAttr -s 8 ".slnk";
+	rename -uid "986BC3EA-49B4-3817-F813-9295A552785F";
+	setAttr -s 11 ".lnk";
+	setAttr -s 11 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "34555DD9-4AF6-D8E7-0664-DCA834C88589";
+	rename -uid "D33EC8BE-4828-1E09-1BF3-A4B1183B92EB";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "15A1333B-4B0A-8C8E-4988-8BAF7C5DAD80";
+	rename -uid "E157DB40-4B48-2D01-5D2A-8CA817CFF683";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "B5BFB070-4D88-4BC2-8BE8-E4A69FE1261F";
+	rename -uid "A41E102E-42AE-50DB-135E-87B1993CC83E";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "7AC1B4D8-4F92-5625-6F67-389DAC3CE7A0";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "6B45485F-4144-6BA4-965A-42A6A96CDA06";
+	rename -uid "C1885C32-467C-ED6C-2E46-10803866C6F0";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "D563CE7B-4F4F-BD74-BA58-C29ACFAF94DF";
 	setAttr ".g" yes;
@@ -28040,9 +33379,184 @@ createNode polyTweakUV -n "polyTweakUV11";
 	setAttr ".uvtk[86]" -type "float2" 0 0.0065514445 ;
 	setAttr ".uvtk[93]" -type "float2" 0 -0.0064767003 ;
 	setAttr ".uvs" -type "string" "UVmap_0";
+createNode phong -n "BasicShapeMaterial";
+	rename -uid "0941C878-4ED0-7E7B-64AE-AEB117B5E675";
+	setAttr ".dc" 1;
+	setAttr ".c" -type "float3" 0.89999998 0.89999998 0.89999998 ;
+	setAttr ".sc" -type "float3" 0.2 0.2 0.2 ;
+	setAttr ".rfl" 1;
+createNode shadingEngine -n "WallSG";
+	rename -uid "5F48D606-4260-760D-E37D-09A7EE188137";
+	setAttr ".ihi" 0;
+	setAttr -s 11 ".dsm";
+	setAttr ".ro" yes;
+	setAttr -s 11 ".gn";
+createNode materialInfo -n "materialInfo3";
+	rename -uid "9D583A52-47E1-0019-C92E-5FA4A28DEFCB";
+createNode phong -n "Mi_Plastic_BigBloc";
+	rename -uid "9E3DB169-4720-FBEF-8D14-62BAB4E4BC97";
+	setAttr ".dc" 1;
+	setAttr ".sc" -type "float3" 0.2 0.2 0.2 ;
+	setAttr ".rfl" 1;
+createNode shadingEngine -n "BP_BlocPlastic12SG";
+	rename -uid "92A5AD15-4EC2-0F60-9D79-CEB01AD18D0A";
+	setAttr ".ihi" 0;
+	setAttr ".ro" yes;
+createNode materialInfo -n "materialInfo4";
+	rename -uid "EBA146CC-49F0-29CF-7446-769B817F0131";
+createNode groupId -n "groupId4";
+	rename -uid "E57C072D-4D85-67F9-511F-76BA3F78972C";
+	setAttr ".ihi" 0;
+createNode file -n "BaseColor_Plastic_BigBloc";
+	rename -uid "3FA44CC9-4BE7-ABFA-12B8-08A7D9FF27A0";
+	setAttr ".ftn" -type "string" "C:\\Users\\cajv.paris\\Documents\\Adobe\\Adobe Substance 3D Painter\\export\\BaseColor_Plastic_BigBloc.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture1";
+	rename -uid "0ED36419-4785-60F7-3DE0-D39776590EB2";
+createNode bump2d -n "bump2d1";
+	rename -uid "7E8B8054-4892-FDF1-A499-BB8BD763A005";
+	setAttr ".bi" 1;
+createNode file -n "Normal_Plastic_BigBloc";
+	rename -uid "2D9D72C9-4CAC-5F01-140B-6284AB429A30";
+	setAttr ".ail" yes;
+	setAttr ".ftn" -type "string" "C:\\Users\\cajv.paris\\Documents\\Adobe\\Adobe Substance 3D Painter\\export\\Normal_Plastic_BigBloc.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture2";
+	rename -uid "87F3F3AD-4FED-6E66-7DD3-40885BB4D420";
+createNode phong -n "Mi_FloorCorner";
+	rename -uid "FE288EB8-4F9D-F753-42BC-28894A69C985";
+	setAttr ".dc" 1;
+	setAttr ".sc" -type "float3" 0.2 0.2 0.2 ;
+	setAttr ".rfl" 1;
+createNode shadingEngine -n "Concrete_FloorCornerSG";
+	rename -uid "25E81009-4DB7-4645-53AD-43B9D1B53612";
+	setAttr ".ihi" 0;
+	setAttr -s 6 ".dsm";
+	setAttr ".ro" yes;
+	setAttr -s 6 ".gn";
+createNode materialInfo -n "materialInfo5";
+	rename -uid "48D3F3A0-48E5-2294-A343-7689F7CADA78";
+createNode groupId -n "groupId5";
+	rename -uid "6099FC24-4244-2089-6428-A898F2DA0068";
+	setAttr ".ihi" 0;
+createNode file -n "BaseColor_Concrete_Floor_Corner";
+	rename -uid "EC2DB36E-4C79-4F14-0E8C-659E2F596C53";
+	setAttr ".ftn" -type "string" "C:\\Users\\cajv.paris\\Documents\\Adobe\\Adobe Substance 3D Painter\\export\\BaseColor_Concrete_Floor_Corner.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture3";
+	rename -uid "2D0B4D89-4E7C-DAA3-A131-C0AB979BC589";
+createNode bump2d -n "bump2d2";
+	rename -uid "1068F70A-4F01-A7AD-36FE-3BAE742508E6";
+	setAttr ".bi" 1;
+createNode file -n "Normal_Concrete_Floor_Corner";
+	rename -uid "FC41F441-4D1A-6F55-6BA3-28A2725F766B";
+	setAttr ".ail" yes;
+	setAttr ".ftn" -type "string" "C:\\Users\\cajv.paris\\Documents\\Adobe\\Adobe Substance 3D Painter\\export\\Normal_Concrete_Floor_Corner.png";
+	setAttr ".cs" -type "string" "sRGB";
+createNode place2dTexture -n "place2dTexture4";
+	rename -uid "C2F5FA57-4E1C-258C-51C1-B3910FD3869E";
+createNode groupId -n "groupId6";
+	rename -uid "940290FC-4AA4-F59B-23F0-33BB3EA8523D";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId11";
+	rename -uid "6BDDE775-4A9B-2DDA-93CD-6B97A5DC9427";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId15";
+	rename -uid "F6553739-4D62-2A48-6954-AFB66E70F987";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId16";
+	rename -uid "B025FAC5-4D30-4810-987A-32916089ED63";
+	setAttr ".ihi" 0;
+createNode groupId -n "groupId18";
+	rename -uid "6316360B-41DA-E5F1-509D-4293428556C9";
+	setAttr ".ihi" 0;
+createNode polyDelEdge -n "polyDelEdge9";
+	rename -uid "8D9181EC-4E94-1D60-5B2A-299447BEB3F7";
+	setAttr ".ics" -type "componentList" 20 "e[1]" "e[6:7]" "e[13]" "e[16]" "e[21]" "e[23]" "e[29]" "e[32]" "e[36]" "e[38]" "e[42]" "e[44]" "e[48]" "e[50]" "e[53:54]" "e[58]" "e[60]" "e[63:64]" "e[67:68]" "e[71]";
+	setAttr ".cv" yes;
+createNode groupId -n "groupId19";
+	rename -uid "A5309CB7-42D8-C0B8-1ADE-429F8BFEDDF5";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts1";
+	rename -uid "3D542D8D-4481-9F72-D36B-1CB1EE91D430";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId20";
+	rename -uid "41BD043C-463C-C5E5-7E47-F0BEA715081F";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts2";
+	rename -uid "E490E99E-451E-0CD4-F961-8A841B4DBC2E";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId21";
+	rename -uid "E26E84E8-48DB-97A3-5499-E5940EBDD84E";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts3";
+	rename -uid "701362AA-4CF2-E3E7-806B-F1810D8AA9E1";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId22";
+	rename -uid "11EA7A3E-4046-4A72-DE63-12B64C8DF4C7";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts4";
+	rename -uid "3E049F00-4189-0DAB-B125-C3BDE2500E87";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId23";
+	rename -uid "6598F245-4337-0471-3C92-B8838A3610E9";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts5";
+	rename -uid "78018617-4111-E1C6-3379-9F9CBCB00BD8";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId24";
+	rename -uid "F0E4457C-4E9F-8A3C-EF9B-DE872A1F0221";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts6";
+	rename -uid "623338FC-4D94-14BC-848B-3AAA7F4E9A22";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId25";
+	rename -uid "24746D6F-48B3-3D34-4102-8782F29ADB6A";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts7";
+	rename -uid "639B5D24-4A01-B5E3-F8F1-84AC6C5979E5";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId26";
+	rename -uid "CFB4B8ED-49C2-1BCE-9EA2-FCA87A61E11E";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts8";
+	rename -uid "36537A83-44EB-6DA7-0325-83BA2447EC3D";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId27";
+	rename -uid "C8EAC75F-49ED-4183-0770-E283646C6A28";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts9";
+	rename -uid "6D3190F0-4A48-C9C3-86F9-C494BD5B3365";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId28";
+	rename -uid "C74AA6C6-4634-8293-3323-47AA624F64A4";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts10";
+	rename -uid "A9A95BAD-477F-6A9E-7427-7DBD4594B557";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode groupId -n "groupId29";
+	rename -uid "5DA02403-40C3-4FBD-262B-B4AE5CA3F3DF";
+	setAttr ".ihi" 0;
+createNode groupParts -n "groupParts11";
+	rename -uid "BF34AB77-44E4-1A75-79C5-E29BD72278B2";
+	setAttr ".ihi" 0;
+	setAttr ".ic" -type "componentList" 1 "f[0:47]";
+createNode polyDelEdge -n "polyDelEdge10";
+	rename -uid "A01D47FE-4E76-48DD-8961-10B3212491BA";
+	setAttr ".ics" -type "componentList" 10 "e[2:3]" "e[7:8]" "e[14:15]" "e[19:20]" "e[25:26]" "e[28:29]" "e[33:34]" "e[36:37]" "e[39:40]" "e[42:47]";
+	setAttr ".cv" yes;
 select -ne :time1;
-	setAttr ".o" 1;
-	setAttr ".unw" 1;
+	setAttr ".o" 0;
 select -ne :hardwareRenderingGlobals;
 	setAttr ".otfna" -type "stringArray" 22 "NURBS Curves" "NURBS Surfaces" "Polygons" "Subdiv Surface" "Particles" "Particle Instance" "Fluids" "Strokes" "Image Planes" "UI" "Lights" "Cameras" "Locators" "Joints" "IK Handles" "Deformers" "Motion Trails" "Components" "Hair Systems" "Follicles" "Misc. UI" "Ornaments"  ;
 	setAttr ".otfva" -type "Int32Array" 22 0 1 1 1 1 1
@@ -28051,13 +33565,17 @@ select -ne :hardwareRenderingGlobals;
 	setAttr ".fprt" yes;
 	setAttr ".rtfm" 1;
 select -ne :renderPartition;
-	setAttr -s 8 ".st";
+	setAttr -s 11 ".st";
 select -ne :renderGlobalsList1;
 select -ne :defaultShaderList1;
-	setAttr -s 9 ".s";
+	setAttr -s 12 ".s";
 select -ne :postProcessList1;
 	setAttr -s 2 ".p";
+select -ne :defaultRenderUtilityList1;
+	setAttr -s 6 ".u";
 select -ne :defaultRenderingList1;
+select -ne :defaultTextureList1;
+	setAttr -s 4 ".tx";
 select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
@@ -28088,6 +33606,65 @@ select -ne :ikSystem;
 connectAttr "polyTweakUV11.out" "Concrete_FloorShape.i";
 connectAttr "polyTweakUV11.uvtk[0]" "Concrete_FloorShape.uvst[0].uvtw";
 connectAttr "polyTweakUV10.uvtk[0]" "Concrete_FloorShape.uvst[1].uvtw";
+connectAttr "groupId19.id" "|Bp_Layout|Wall|WallShape.iog.og[0].gid";
+connectAttr "WallSG.mwc" "|Bp_Layout|Wall|WallShape.iog.og[0].gco";
+connectAttr "groupId20.id" "|Bp_Layout|Wall1|WallShape.iog.og[0].gid";
+connectAttr "WallSG.mwc" "|Bp_Layout|Wall1|WallShape.iog.og[0].gco";
+connectAttr "groupId21.id" "|Bp_Layout|Wall2|WallShape.iog.og[0].gid";
+connectAttr "WallSG.mwc" "|Bp_Layout|Wall2|WallShape.iog.og[0].gco";
+connectAttr "groupId22.id" "|Bp_Layout|BP_BouncePannel12|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel12|WallShape.iog.og[0].gco";
+connectAttr "groupId23.id" "|Bp_Layout|BP_BouncePannel13|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel13|WallShape.iog.og[0].gco";
+connectAttr "groupId24.id" "|Bp_Layout|BP_BouncePannel14|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel14|WallShape.iog.og[0].gco";
+connectAttr "groupId25.id" "|Bp_Layout|Cube|WallShape.iog.og[0].gid";
+connectAttr "WallSG.mwc" "|Bp_Layout|Cube|WallShape.iog.og[0].gco";
+connectAttr "groupId26.id" "|Bp_Layout|BP_BouncePannel0|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel0|WallShape.iog.og[0].gco";
+connectAttr "groupId27.id" "|Bp_Layout|BP_BouncePannel1_ncl1_1|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel1_ncl1_1|WallShape.iog.og[0].gco"
+		;
+connectAttr "groupId28.id" "|Bp_Layout|BP_BouncePannel2_ncl1_1|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel2_ncl1_1|WallShape.iog.og[0].gco"
+		;
+connectAttr "groupId29.id" "|Bp_Layout|BP_BouncePannel3_ncl1_1|WallShape.iog.og[0].gid"
+		;
+connectAttr "WallSG.mwc" "|Bp_Layout|BP_BouncePannel3_ncl1_1|WallShape.iog.og[0].gco"
+		;
+connectAttr "polyDelEdge10.out" "|Bp_Layout|Wall|WallShape.i";
+connectAttr "groupId4.id" "BP_BlocPlastic12Shape.iog.og[0].gid";
+connectAttr "BP_BlocPlastic12SG.mwc" "BP_BlocPlastic12Shape.iog.og[0].gco";
+connectAttr "groupId5.id" "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape.iog.og[0].gid"
+		;
+connectAttr "Concrete_FloorCornerSG.mwc" "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape.iog.og[0].gco"
+		;
+connectAttr "groupId6.id" "|Bp_Layout|Concrete_FloorCorner1|Concrete_FloorCornerShape.iog.og[0].gid"
+		;
+connectAttr "Concrete_FloorCornerSG.mwc" "|Bp_Layout|Concrete_FloorCorner1|Concrete_FloorCornerShape.iog.og[0].gco"
+		;
+connectAttr "groupId11.id" "|Bp_Layout|Concrete_FloorCorner3|Concrete_FloorCornerShape.iog.og[0].gid"
+		;
+connectAttr "Concrete_FloorCornerSG.mwc" "|Bp_Layout|Concrete_FloorCorner3|Concrete_FloorCornerShape.iog.og[0].gco"
+		;
+connectAttr "groupId15.id" "|Bp_Layout|Concrete_FloorCorner4|Concrete_FloorCornerShape.iog.og[0].gid"
+		;
+connectAttr "Concrete_FloorCornerSG.mwc" "|Bp_Layout|Concrete_FloorCorner4|Concrete_FloorCornerShape.iog.og[0].gco"
+		;
+connectAttr "groupId16.id" "|Bp_Layout|e|Concrete_FloorCornerShape.iog.og[0].gid"
+		;
+connectAttr "Concrete_FloorCornerSG.mwc" "|Bp_Layout|e|Concrete_FloorCornerShape.iog.og[0].gco"
+		;
+connectAttr "groupId18.id" "|Bp_Layout|Concrete_FloorCorner5|Concrete_FloorCornerShape.iog.og[0].gid"
+		;
+connectAttr "Concrete_FloorCornerSG.mwc" "|Bp_Layout|Concrete_FloorCorner5|Concrete_FloorCornerShape.iog.og[0].gco"
+		;
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "pasted__Wall_ConcreteDamagedSG.message" ":defaultLightSet.message";
@@ -28096,6 +33673,9 @@ relationship "link" ":lightLinker1" "Maya_Lambert1SG.message" ":defaultLightSet.
 relationship "link" ":lightLinker1" "lambert1SG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "pasted__pasted__Wall_ConcreteDamagedSG.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "pasted__lambert1SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "WallSG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "BP_BlocPlastic12SG.message" ":defaultLightSet.message";
+relationship "link" ":lightLinker1" "Concrete_FloorCornerSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "pasted__Wall_ConcreteDamagedSG.message" ":defaultLightSet.message";
@@ -28104,6 +33684,9 @@ relationship "shadowLink" ":lightLinker1" "Maya_Lambert1SG.message" ":defaultLig
 relationship "shadowLink" ":lightLinker1" "lambert1SG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "pasted__pasted__Wall_ConcreteDamagedSG.message" ":defaultLightSet.message";
 relationship "shadowLink" ":lightLinker1" "pasted__lambert1SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "WallSG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "BP_BlocPlastic12SG.message" ":defaultLightSet.message";
+relationship "shadowLink" ":lightLinker1" "Concrete_FloorCornerSG.message" ":defaultLightSet.message";
 connectAttr "layerManager.dli[0]" "defaultLayer.id";
 connectAttr "renderLayerManager.rlmi[0]" "defaultRenderLayer.rlid";
 connectAttr "pasted__Wall_ConcreteDamagedSG.msg" "pasted__materialInfo31.sg";
@@ -28223,6 +33806,154 @@ connectAttr "Concrete_FloorShape.wm" "polySoftEdge1.mp";
 connectAttr "polySoftEdge1.out" "polySoftEdge2.ip";
 connectAttr "Concrete_FloorShape.wm" "polySoftEdge2.mp";
 connectAttr "polySoftEdge2.out" "polyTweakUV11.ip";
+connectAttr "BasicShapeMaterial.oc" "WallSG.ss";
+connectAttr "groupId19.msg" "WallSG.gn" -na;
+connectAttr "groupId20.msg" "WallSG.gn" -na;
+connectAttr "groupId21.msg" "WallSG.gn" -na;
+connectAttr "groupId22.msg" "WallSG.gn" -na;
+connectAttr "groupId23.msg" "WallSG.gn" -na;
+connectAttr "groupId24.msg" "WallSG.gn" -na;
+connectAttr "groupId25.msg" "WallSG.gn" -na;
+connectAttr "groupId26.msg" "WallSG.gn" -na;
+connectAttr "groupId27.msg" "WallSG.gn" -na;
+connectAttr "groupId28.msg" "WallSG.gn" -na;
+connectAttr "groupId29.msg" "WallSG.gn" -na;
+connectAttr "|Bp_Layout|Wall|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|Wall1|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|Wall2|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|BP_BouncePannel12|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|BP_BouncePannel13|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|BP_BouncePannel14|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|Cube|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|BP_BouncePannel0|WallShape.iog.og[0]" "WallSG.dsm" -na;
+connectAttr "|Bp_Layout|BP_BouncePannel1_ncl1_1|WallShape.iog.og[0]" "WallSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|BP_BouncePannel2_ncl1_1|WallShape.iog.og[0]" "WallSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|BP_BouncePannel3_ncl1_1|WallShape.iog.og[0]" "WallSG.dsm"
+		 -na;
+connectAttr "WallSG.msg" "materialInfo3.sg";
+connectAttr "BasicShapeMaterial.msg" "materialInfo3.m";
+connectAttr "BaseColor_Plastic_BigBloc.oc" "Mi_Plastic_BigBloc.c";
+connectAttr "bump2d1.o" "Mi_Plastic_BigBloc.n";
+connectAttr "Mi_Plastic_BigBloc.oc" "BP_BlocPlastic12SG.ss";
+connectAttr "groupId4.msg" "BP_BlocPlastic12SG.gn" -na;
+connectAttr "BP_BlocPlastic12Shape.iog.og[0]" "BP_BlocPlastic12SG.dsm" -na;
+connectAttr "BP_BlocPlastic12SG.msg" "materialInfo4.sg";
+connectAttr "Mi_Plastic_BigBloc.msg" "materialInfo4.m";
+connectAttr "BaseColor_Plastic_BigBloc.msg" "materialInfo4.t" -na;
+connectAttr "place2dTexture1.o" "BaseColor_Plastic_BigBloc.uv";
+connectAttr "place2dTexture1.ofu" "BaseColor_Plastic_BigBloc.ofu";
+connectAttr "place2dTexture1.ofv" "BaseColor_Plastic_BigBloc.ofv";
+connectAttr "place2dTexture1.rf" "BaseColor_Plastic_BigBloc.rf";
+connectAttr "place2dTexture1.reu" "BaseColor_Plastic_BigBloc.reu";
+connectAttr "place2dTexture1.rev" "BaseColor_Plastic_BigBloc.rev";
+connectAttr "place2dTexture1.vt1" "BaseColor_Plastic_BigBloc.vt1";
+connectAttr "place2dTexture1.vt2" "BaseColor_Plastic_BigBloc.vt2";
+connectAttr "place2dTexture1.vt3" "BaseColor_Plastic_BigBloc.vt3";
+connectAttr "place2dTexture1.vc1" "BaseColor_Plastic_BigBloc.vc1";
+connectAttr "place2dTexture1.ofs" "BaseColor_Plastic_BigBloc.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "BaseColor_Plastic_BigBloc.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "BaseColor_Plastic_BigBloc.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "BaseColor_Plastic_BigBloc.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "BaseColor_Plastic_BigBloc.ws";
+connectAttr "Normal_Plastic_BigBloc.oa" "bump2d1.bv";
+connectAttr "place2dTexture2.o" "Normal_Plastic_BigBloc.uv";
+connectAttr "place2dTexture2.ofu" "Normal_Plastic_BigBloc.ofu";
+connectAttr "place2dTexture2.ofv" "Normal_Plastic_BigBloc.ofv";
+connectAttr "place2dTexture2.rf" "Normal_Plastic_BigBloc.rf";
+connectAttr "place2dTexture2.reu" "Normal_Plastic_BigBloc.reu";
+connectAttr "place2dTexture2.rev" "Normal_Plastic_BigBloc.rev";
+connectAttr "place2dTexture2.vt1" "Normal_Plastic_BigBloc.vt1";
+connectAttr "place2dTexture2.vt2" "Normal_Plastic_BigBloc.vt2";
+connectAttr "place2dTexture2.vt3" "Normal_Plastic_BigBloc.vt3";
+connectAttr "place2dTexture2.vc1" "Normal_Plastic_BigBloc.vc1";
+connectAttr "place2dTexture2.ofs" "Normal_Plastic_BigBloc.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "Normal_Plastic_BigBloc.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "Normal_Plastic_BigBloc.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "Normal_Plastic_BigBloc.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "Normal_Plastic_BigBloc.ws";
+connectAttr "BaseColor_Concrete_Floor_Corner.oc" "Mi_FloorCorner.c";
+connectAttr "bump2d2.o" "Mi_FloorCorner.n";
+connectAttr "Mi_FloorCorner.oc" "Concrete_FloorCornerSG.ss";
+connectAttr "groupId5.msg" "Concrete_FloorCornerSG.gn" -na;
+connectAttr "groupId6.msg" "Concrete_FloorCornerSG.gn" -na;
+connectAttr "groupId11.msg" "Concrete_FloorCornerSG.gn" -na;
+connectAttr "groupId15.msg" "Concrete_FloorCornerSG.gn" -na;
+connectAttr "groupId16.msg" "Concrete_FloorCornerSG.gn" -na;
+connectAttr "groupId18.msg" "Concrete_FloorCornerSG.gn" -na;
+connectAttr "|Bp_Layout|Concrete_FloorCorner|Concrete_FloorCornerShape.iog.og[0]" "Concrete_FloorCornerSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|Concrete_FloorCorner1|Concrete_FloorCornerShape.iog.og[0]" "Concrete_FloorCornerSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|Concrete_FloorCorner3|Concrete_FloorCornerShape.iog.og[0]" "Concrete_FloorCornerSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|Concrete_FloorCorner4|Concrete_FloorCornerShape.iog.og[0]" "Concrete_FloorCornerSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|e|Concrete_FloorCornerShape.iog.og[0]" "Concrete_FloorCornerSG.dsm"
+		 -na;
+connectAttr "|Bp_Layout|Concrete_FloorCorner5|Concrete_FloorCornerShape.iog.og[0]" "Concrete_FloorCornerSG.dsm"
+		 -na;
+connectAttr "Concrete_FloorCornerSG.msg" "materialInfo5.sg";
+connectAttr "Mi_FloorCorner.msg" "materialInfo5.m";
+connectAttr "BaseColor_Concrete_Floor_Corner.msg" "materialInfo5.t" -na;
+connectAttr "place2dTexture3.o" "BaseColor_Concrete_Floor_Corner.uv";
+connectAttr "place2dTexture3.ofu" "BaseColor_Concrete_Floor_Corner.ofu";
+connectAttr "place2dTexture3.ofv" "BaseColor_Concrete_Floor_Corner.ofv";
+connectAttr "place2dTexture3.rf" "BaseColor_Concrete_Floor_Corner.rf";
+connectAttr "place2dTexture3.reu" "BaseColor_Concrete_Floor_Corner.reu";
+connectAttr "place2dTexture3.rev" "BaseColor_Concrete_Floor_Corner.rev";
+connectAttr "place2dTexture3.vt1" "BaseColor_Concrete_Floor_Corner.vt1";
+connectAttr "place2dTexture3.vt2" "BaseColor_Concrete_Floor_Corner.vt2";
+connectAttr "place2dTexture3.vt3" "BaseColor_Concrete_Floor_Corner.vt3";
+connectAttr "place2dTexture3.vc1" "BaseColor_Concrete_Floor_Corner.vc1";
+connectAttr "place2dTexture3.ofs" "BaseColor_Concrete_Floor_Corner.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "BaseColor_Concrete_Floor_Corner.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "BaseColor_Concrete_Floor_Corner.cmcf"
+		;
+connectAttr ":defaultColorMgtGlobals.cfp" "BaseColor_Concrete_Floor_Corner.cmcp"
+		;
+connectAttr ":defaultColorMgtGlobals.wsn" "BaseColor_Concrete_Floor_Corner.ws";
+connectAttr "Normal_Concrete_Floor_Corner.oa" "bump2d2.bv";
+connectAttr "place2dTexture4.o" "Normal_Concrete_Floor_Corner.uv";
+connectAttr "place2dTexture4.ofu" "Normal_Concrete_Floor_Corner.ofu";
+connectAttr "place2dTexture4.ofv" "Normal_Concrete_Floor_Corner.ofv";
+connectAttr "place2dTexture4.rf" "Normal_Concrete_Floor_Corner.rf";
+connectAttr "place2dTexture4.reu" "Normal_Concrete_Floor_Corner.reu";
+connectAttr "place2dTexture4.rev" "Normal_Concrete_Floor_Corner.rev";
+connectAttr "place2dTexture4.vt1" "Normal_Concrete_Floor_Corner.vt1";
+connectAttr "place2dTexture4.vt2" "Normal_Concrete_Floor_Corner.vt2";
+connectAttr "place2dTexture4.vt3" "Normal_Concrete_Floor_Corner.vt3";
+connectAttr "place2dTexture4.vc1" "Normal_Concrete_Floor_Corner.vc1";
+connectAttr "place2dTexture4.ofs" "Normal_Concrete_Floor_Corner.fs";
+connectAttr ":defaultColorMgtGlobals.cme" "Normal_Concrete_Floor_Corner.cme";
+connectAttr ":defaultColorMgtGlobals.cfe" "Normal_Concrete_Floor_Corner.cmcf";
+connectAttr ":defaultColorMgtGlobals.cfp" "Normal_Concrete_Floor_Corner.cmcp";
+connectAttr ":defaultColorMgtGlobals.wsn" "Normal_Concrete_Floor_Corner.ws";
+connectAttr "groupParts11.og" "polyDelEdge9.ip";
+connectAttr "polySurfaceShape2.o" "groupParts1.ig";
+connectAttr "groupId19.id" "groupParts1.gi";
+connectAttr "groupParts1.og" "groupParts2.ig";
+connectAttr "groupId20.id" "groupParts2.gi";
+connectAttr "groupParts2.og" "groupParts3.ig";
+connectAttr "groupId21.id" "groupParts3.gi";
+connectAttr "groupParts3.og" "groupParts4.ig";
+connectAttr "groupId22.id" "groupParts4.gi";
+connectAttr "groupParts4.og" "groupParts5.ig";
+connectAttr "groupId23.id" "groupParts5.gi";
+connectAttr "groupParts5.og" "groupParts6.ig";
+connectAttr "groupId24.id" "groupParts6.gi";
+connectAttr "groupParts6.og" "groupParts7.ig";
+connectAttr "groupId25.id" "groupParts7.gi";
+connectAttr "groupParts7.og" "groupParts8.ig";
+connectAttr "groupId26.id" "groupParts8.gi";
+connectAttr "groupParts8.og" "groupParts9.ig";
+connectAttr "groupId27.id" "groupParts9.gi";
+connectAttr "groupParts9.og" "groupParts10.ig";
+connectAttr "groupId28.id" "groupParts10.gi";
+connectAttr "groupParts10.og" "groupParts11.ig";
+connectAttr "groupId29.id" "groupParts11.gi";
+connectAttr "polyDelEdge9.out" "polyDelEdge10.ip";
 connectAttr "pasted__Wall_ConcreteDamagedSG.pa" ":renderPartition.st" -na;
 connectAttr "pasted__Standard_Surface2SG.pa" ":renderPartition.st" -na;
 connectAttr "Maya_Lambert1SG.pa" ":renderPartition.st" -na;
@@ -28230,9 +33961,25 @@ connectAttr "lambert1SG.pa" ":renderPartition.st" -na;
 connectAttr "pasted__pasted__Wall_ConcreteDamagedSG.pa" ":renderPartition.st" -na
 		;
 connectAttr "pasted__lambert1SG.pa" ":renderPartition.st" -na;
+connectAttr "WallSG.pa" ":renderPartition.st" -na;
+connectAttr "BP_BlocPlastic12SG.pa" ":renderPartition.st" -na;
+connectAttr "Concrete_FloorCornerSG.pa" ":renderPartition.st" -na;
 connectAttr "pasted__Standard_Surface1.msg" ":defaultShaderList1.s" -na;
 connectAttr "pasted__Standard_Surface2.msg" ":defaultShaderList1.s" -na;
 connectAttr "Maya_Lambert1.msg" ":defaultShaderList1.s" -na;
 connectAttr "pasted__pasted__Standard_Surface1.msg" ":defaultShaderList1.s" -na;
+connectAttr "BasicShapeMaterial.msg" ":defaultShaderList1.s" -na;
+connectAttr "Mi_Plastic_BigBloc.msg" ":defaultShaderList1.s" -na;
+connectAttr "Mi_FloorCorner.msg" ":defaultShaderList1.s" -na;
+connectAttr "place2dTexture1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "bump2d1.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture2.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture3.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "bump2d2.msg" ":defaultRenderUtilityList1.u" -na;
+connectAttr "place2dTexture4.msg" ":defaultRenderUtilityList1.u" -na;
 connectAttr "defaultRenderLayer.msg" ":defaultRenderingList1.r" -na;
+connectAttr "BaseColor_Plastic_BigBloc.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Normal_Plastic_BigBloc.msg" ":defaultTextureList1.tx" -na;
+connectAttr "BaseColor_Concrete_Floor_Corner.msg" ":defaultTextureList1.tx" -na;
+connectAttr "Normal_Concrete_Floor_Corner.msg" ":defaultTextureList1.tx" -na;
 // End of Blocking_Arene.ma
