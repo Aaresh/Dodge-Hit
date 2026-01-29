@@ -30,6 +30,10 @@
 		{
 			"Name": "ColorCorrectRegions",
 			"Enabled": true
+		},
+		{
+			"Name": "CameraCalibration",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
