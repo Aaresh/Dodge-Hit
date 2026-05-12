@@ -78,6 +78,10 @@
 		{
 			"Name": "MovieRenderPipeline",
 			"Enabled": true
+		},
+		{
+			"Name": "AlembicHairImporter",
+			"Enabled": true
 		}
 	],
 	"TargetPlatforms": [
